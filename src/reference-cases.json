@@ -1,0 +1,270 @@
+[
+  {
+    "report": "calls",
+    "name": "default",
+    "filters": {},
+    "expected": {
+      "count": 5000,
+      "answered": 4054,
+      "resolved": 3646,
+      "satisfaction": 3.4035520473606313,
+      "speed": 67.52072027627035
+    }
+  },
+  {
+    "report": "calls",
+    "name": "topic",
+    "filters": {
+      "topic": [
+        "Technical Support"
+      ]
+    },
+    "expected": {
+      "count": 1019,
+      "answered": 805,
+      "resolved": 736,
+      "satisfaction": 3.414906832298137,
+      "speed": 68.11055900621118
+    }
+  },
+  {
+    "report": "calls",
+    "name": "intersection",
+    "filters": {
+      "topic": [
+        "Technical Support"
+      ],
+      "month": [
+        "2021-01"
+      ]
+    },
+    "expected": {
+      "count": 362,
+      "answered": 274,
+      "resolved": 252,
+      "satisfaction": 3.4452554744525545,
+      "speed": 68.65693430656934
+    }
+  },
+  {
+    "report": "calls",
+    "name": "multi",
+    "filters": {
+      "topic": [
+        "Technical Support",
+        "Contract related"
+      ]
+    },
+    "expected": {
+      "count": 1995,
+      "answered": 1594,
+      "resolved": 1445,
+      "satisfaction": 3.396486825595985,
+      "speed": 67.63801756587202
+    }
+  },
+  {
+    "report": "calls",
+    "name": "empty",
+    "filters": {
+      "id": [
+        "missing"
+      ]
+    },
+    "expected": {
+      "count": 0,
+      "answered": 0,
+      "resolved": 0,
+      "satisfaction": null,
+      "speed": null
+    }
+  },
+  {
+    "report": "retention",
+    "name": "default",
+    "filters": {},
+    "expected": {
+      "count": 7043,
+      "churned": 1869,
+      "churnRate": 26.536987079369588,
+      "total": 16056168.7,
+      "monthly": 64.76169246059918,
+      "averageTotal": 2283.3004408418656,
+      "tech": 2955.0,
+      "admin": 3632.0
+    }
+  },
+  {
+    "report": "retention",
+    "name": "churned",
+    "filters": {
+      "churn": [
+        "Yes"
+      ]
+    },
+    "expected": {
+      "count": 1869,
+      "churned": 1869,
+      "churnRate": 100.0,
+      "total": 2862926.9,
+      "monthly": 74.44133226324237,
+      "averageTotal": 1531.7960941680042,
+      "tech": 2173.0,
+      "admin": 885.0
+    }
+  },
+  {
+    "report": "retention",
+    "name": "intersection",
+    "filters": {
+      "contract": [
+        "Month-to-month"
+      ],
+      "internet": [
+        "Fiber optic"
+      ]
+    },
+    "expected": {
+      "count": 2128,
+      "churned": 1162,
+      "churnRate": 54.60526315789473,
+      "total": 4191552.55,
+      "monthly": 87.02119360902255,
+      "averageTotal": 1969.7145441729322,
+      "tech": 1263.0,
+      "admin": 1094.0
+    }
+  },
+  {
+    "report": "retention",
+    "name": "zero-tenure",
+    "filters": {
+      "tenure": [
+        0
+      ]
+    },
+    "expected": {
+      "count": 11,
+      "churned": 0,
+      "churnRate": 0.0,
+      "total": 0.0,
+      "monthly": 41.41818181818181,
+      "averageTotal": null,
+      "tech": 0.0,
+      "admin": 11.0
+    }
+  },
+  {
+    "report": "retention",
+    "name": "empty",
+    "filters": {
+      "id": [
+        "missing"
+      ]
+    },
+    "expected": {
+      "count": 0,
+      "churned": 0,
+      "churnRate": 0,
+      "total": 0.0,
+      "monthly": null,
+      "averageTotal": null,
+      "tech": 0.0,
+      "admin": 0.0
+    }
+  },
+  {
+    "report": "inclusion",
+    "name": "default",
+    "filters": {},
+    "expected": {
+      "count": 500,
+      "womenShare": 41.0,
+      "turnover": 10.06423982869379,
+      "womenPromoted": 35.294117647058826,
+      "ratingMen": 2.4071146245059287,
+      "ratingWomen": 2.41875,
+      "promotions": 51,
+      "leavers": 47
+    }
+  },
+  {
+    "report": "inclusion",
+    "name": "department",
+    "filters": {
+      "department": [
+        "Operations"
+      ]
+    },
+    "expected": {
+      "count": 203,
+      "womenShare": 49.26108374384236,
+      "turnover": 10.610079575596817,
+      "womenPromoted": 43.75,
+      "ratingMen": 2.5,
+      "ratingWomen": 2.4634146341463414,
+      "promotions": 16,
+      "leavers": 20
+    }
+  },
+  {
+    "report": "inclusion",
+    "name": "intersection",
+    "filters": {
+      "department": [
+        "Operations"
+      ],
+      "age": [
+        "30 to 39"
+      ]
+    },
+    "expected": {
+      "count": 65,
+      "womenShare": 36.92307692307693,
+      "turnover": 6.722689075630252,
+      "womenPromoted": 30.0,
+      "ratingMen": 2.4,
+      "ratingWomen": 2.4210526315789473,
+      "promotions": 10,
+      "leavers": 4
+    }
+  },
+  {
+    "report": "inclusion",
+    "name": "region",
+    "filters": {
+      "region": [
+        "Europe"
+      ]
+    },
+    "expected": {
+      "count": 224,
+      "womenShare": 46.42857142857143,
+      "turnover": 9.569377990430622,
+      "womenPromoted": 40.0,
+      "ratingMen": 2.423076923076923,
+      "ratingWomen": 2.475,
+      "promotions": 20,
+      "leavers": 20
+    }
+  },
+  {
+    "report": "inclusion",
+    "name": "empty",
+    "filters": {
+      "id": [
+        "missing"
+      ]
+    },
+    "expected": {
+      "count": 0,
+      "womenShare": null,
+      "turnover": null,
+      "womenPromoted": null,
+      "ratingMen": null,
+      "ratingWomen": null,
+      "promotions": 0,
+      "leavers": 0
+    }
+  }
+]

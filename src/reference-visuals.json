@@ -1,0 +1,4364 @@
+[
+  {
+    "report": "calls",
+    "page": 1,
+    "name": "default",
+    "filters": {},
+    "expected": {
+      "satisfaction": [
+        {
+          "key": "",
+          "values": [
+            3.4035520473606313
+          ]
+        }
+      ],
+      "answer-speed": [
+        {
+          "key": "",
+          "values": [
+            67.52072027627035
+          ]
+        }
+      ],
+      "answered": [
+        {
+          "key": "Y",
+          "values": [
+            4054
+          ]
+        },
+        {
+          "key": "N",
+          "values": [
+            946
+          ]
+        }
+      ],
+      "resolved": [
+        {
+          "key": "Y",
+          "values": [
+            3646
+          ]
+        },
+        {
+          "key": "N",
+          "values": [
+            1354
+          ]
+        }
+      ],
+      "hourly": [
+        {
+          "key": 9,
+          "values": [
+            547
+          ]
+        },
+        {
+          "key": 10,
+          "values": [
+            529
+          ]
+        },
+        {
+          "key": 11,
+          "values": [
+            590
+          ]
+        },
+        {
+          "key": 12,
+          "values": [
+            547
+          ]
+        },
+        {
+          "key": 13,
+          "values": [
+            594
+          ]
+        },
+        {
+          "key": 14,
+          "values": [
+            499
+          ]
+        },
+        {
+          "key": 15,
+          "values": [
+            531
+          ]
+        },
+        {
+          "key": 16,
+          "values": [
+            566
+          ]
+        },
+        {
+          "key": 17,
+          "values": [
+            583
+          ]
+        },
+        {
+          "key": 18,
+          "values": [
+            14
+          ]
+        }
+      ],
+      "monthly": [
+        {
+          "key": "2021-01",
+          "values": [
+            1455,
+            317
+          ]
+        },
+        {
+          "key": "2021-02",
+          "values": [
+            1298,
+            318
+          ]
+        },
+        {
+          "key": "2021-03",
+          "values": [
+            1301,
+            311
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "calls",
+    "page": 1,
+    "name": "topic",
+    "filters": {
+      "topic": [
+        "Technical Support"
+      ]
+    },
+    "expected": {
+      "satisfaction": [
+        {
+          "key": "",
+          "values": [
+            3.414906832298137
+          ]
+        }
+      ],
+      "answer-speed": [
+        {
+          "key": "",
+          "values": [
+            68.11055900621118
+          ]
+        }
+      ],
+      "answered": [
+        {
+          "key": "Y",
+          "values": [
+            805
+          ]
+        },
+        {
+          "key": "N",
+          "values": [
+            214
+          ]
+        }
+      ],
+      "resolved": [
+        {
+          "key": "Y",
+          "values": [
+            736
+          ]
+        },
+        {
+          "key": "N",
+          "values": [
+            283
+          ]
+        }
+      ],
+      "hourly": [
+        {
+          "key": 9,
+          "values": [
+            119
+          ]
+        },
+        {
+          "key": 10,
+          "values": [
+            108
+          ]
+        },
+        {
+          "key": 11,
+          "values": [
+            115
+          ]
+        },
+        {
+          "key": 12,
+          "values": [
+            106
+          ]
+        },
+        {
+          "key": 13,
+          "values": [
+            122
+          ]
+        },
+        {
+          "key": 14,
+          "values": [
+            105
+          ]
+        },
+        {
+          "key": 15,
+          "values": [
+            111
+          ]
+        },
+        {
+          "key": 16,
+          "values": [
+            112
+          ]
+        },
+        {
+          "key": 17,
+          "values": [
+            120
+          ]
+        },
+        {
+          "key": 18,
+          "values": [
+            1
+          ]
+        }
+      ],
+      "monthly": [
+        {
+          "key": "2021-01",
+          "values": [
+            274,
+            88
+          ]
+        },
+        {
+          "key": "2021-02",
+          "values": [
+            266,
+            63
+          ]
+        },
+        {
+          "key": "2021-03",
+          "values": [
+            265,
+            63
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "calls",
+    "page": 1,
+    "name": "intersection",
+    "filters": {
+      "topic": [
+        "Technical Support"
+      ],
+      "month": [
+        "2021-01"
+      ]
+    },
+    "expected": {
+      "satisfaction": [
+        {
+          "key": "",
+          "values": [
+            3.4452554744525545
+          ]
+        }
+      ],
+      "answer-speed": [
+        {
+          "key": "",
+          "values": [
+            68.65693430656934
+          ]
+        }
+      ],
+      "answered": [
+        {
+          "key": "Y",
+          "values": [
+            274
+          ]
+        },
+        {
+          "key": "N",
+          "values": [
+            88
+          ]
+        }
+      ],
+      "resolved": [
+        {
+          "key": "Y",
+          "values": [
+            252
+          ]
+        },
+        {
+          "key": "N",
+          "values": [
+            110
+          ]
+        }
+      ],
+      "hourly": [
+        {
+          "key": 9,
+          "values": [
+            47
+          ]
+        },
+        {
+          "key": 10,
+          "values": [
+            34
+          ]
+        },
+        {
+          "key": 11,
+          "values": [
+            40
+          ]
+        },
+        {
+          "key": 12,
+          "values": [
+            46
+          ]
+        },
+        {
+          "key": 13,
+          "values": [
+            43
+          ]
+        },
+        {
+          "key": 14,
+          "values": [
+            41
+          ]
+        },
+        {
+          "key": 15,
+          "values": [
+            33
+          ]
+        },
+        {
+          "key": 16,
+          "values": [
+            32
+          ]
+        },
+        {
+          "key": 17,
+          "values": [
+            46
+          ]
+        }
+      ],
+      "monthly": [
+        {
+          "key": "2021-01",
+          "values": [
+            274,
+            88
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "calls",
+    "page": 1,
+    "name": "multi",
+    "filters": {
+      "topic": [
+        "Technical Support",
+        "Contract related"
+      ]
+    },
+    "expected": {
+      "satisfaction": [
+        {
+          "key": "",
+          "values": [
+            3.396486825595985
+          ]
+        }
+      ],
+      "answer-speed": [
+        {
+          "key": "",
+          "values": [
+            67.63801756587202
+          ]
+        }
+      ],
+      "answered": [
+        {
+          "key": "Y",
+          "values": [
+            1594
+          ]
+        },
+        {
+          "key": "N",
+          "values": [
+            401
+          ]
+        }
+      ],
+      "resolved": [
+        {
+          "key": "Y",
+          "values": [
+            1445
+          ]
+        },
+        {
+          "key": "N",
+          "values": [
+            550
+          ]
+        }
+      ],
+      "hourly": [
+        {
+          "key": 9,
+          "values": [
+            228
+          ]
+        },
+        {
+          "key": 10,
+          "values": [
+            217
+          ]
+        },
+        {
+          "key": 11,
+          "values": [
+            241
+          ]
+        },
+        {
+          "key": 12,
+          "values": [
+            202
+          ]
+        },
+        {
+          "key": 13,
+          "values": [
+            225
+          ]
+        },
+        {
+          "key": 14,
+          "values": [
+            179
+          ]
+        },
+        {
+          "key": 15,
+          "values": [
+            224
+          ]
+        },
+        {
+          "key": 16,
+          "values": [
+            229
+          ]
+        },
+        {
+          "key": 17,
+          "values": [
+            247
+          ]
+        },
+        {
+          "key": 18,
+          "values": [
+            3
+          ]
+        }
+      ],
+      "monthly": [
+        {
+          "key": "2021-01",
+          "values": [
+            560,
+            145
+          ]
+        },
+        {
+          "key": "2021-02",
+          "values": [
+            519,
+            130
+          ]
+        },
+        {
+          "key": "2021-03",
+          "values": [
+            515,
+            126
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "calls",
+    "page": 1,
+    "name": "empty",
+    "filters": {
+      "id": [
+        "missing"
+      ]
+    },
+    "expected": {
+      "satisfaction": [
+        {
+          "key": "",
+          "values": [
+            null
+          ]
+        }
+      ],
+      "answer-speed": [
+        {
+          "key": "",
+          "values": [
+            null
+          ]
+        }
+      ],
+      "answered": [
+        {
+          "key": "Y",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "N",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "resolved": [
+        {
+          "key": "Y",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "N",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "hourly": [],
+      "monthly": []
+    }
+  },
+  {
+    "report": "retention",
+    "page": 1,
+    "name": "default",
+    "filters": {},
+    "expected": {
+      "gender": [
+        {
+          "key": "Female",
+          "values": [
+            939
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            930
+          ]
+        }
+      ],
+      "demographic-senior": [
+        {
+          "key": "",
+          "values": [
+            25.468164794007492
+          ]
+        }
+      ],
+      "demographic-partner": [
+        {
+          "key": "",
+          "values": [
+            35.79454253611557
+          ]
+        }
+      ],
+      "demographic-dependents": [
+        {
+          "key": "",
+          "values": [
+            17.442482611021937
+          ]
+        }
+      ],
+      "loyalty": [
+        {
+          "key": "0–12 months",
+          "values": [
+            55.48421615837347
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            15.730337078651685
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            9.630818619582666
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            7.758159443552702
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            6.420545746388442
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            4.975922953451043
+          ]
+        }
+      ],
+      "payment": [
+        {
+          "key": "Bank transfer (automatic)",
+          "values": [
+            13.804173354735152
+          ]
+        },
+        {
+          "key": "Credit card (automatic)",
+          "values": [
+            12.413055109684324
+          ]
+        },
+        {
+          "key": "Electronic check",
+          "values": [
+            57.30337078651685
+          ]
+        },
+        {
+          "key": "Mailed check",
+          "values": [
+            16.479400749063668
+          ]
+        }
+      ],
+      "contracts": [
+        {
+          "key": "Month-to-month",
+          "values": [
+            88.55002675227395
+          ]
+        },
+        {
+          "key": "One year",
+          "values": [
+            8.881754949170679
+          ]
+        },
+        {
+          "key": "Two year",
+          "values": [
+            2.568218298555377
+          ]
+        }
+      ],
+      "paperless": [
+        {
+          "key": "No",
+          "values": [
+            469
+          ]
+        },
+        {
+          "key": "Yes",
+          "values": [
+            1400
+          ]
+        }
+      ],
+      "average-charges": [
+        {
+          "key": "monthly",
+          "values": [
+            74.44133226324237
+          ]
+        },
+        {
+          "key": "total",
+          "values": [
+            1531.7960941680042
+          ]
+        }
+      ],
+      "services": [
+        {
+          "key": "phone",
+          "values": [
+            90.90422685928304
+          ]
+        },
+        {
+          "key": "tv",
+          "values": [
+            43.55270197966827
+          ]
+        },
+        {
+          "key": "movies",
+          "values": [
+            43.76672017121455
+          ]
+        },
+        {
+          "key": "protection",
+          "values": [
+            29.159978598180846
+          ]
+        },
+        {
+          "key": "backup",
+          "values": [
+            27.9828785446763
+          ]
+        },
+        {
+          "key": "support",
+          "values": [
+            16.586409844836812
+          ]
+        },
+        {
+          "key": "security",
+          "values": [
+            15.783841626538257
+          ]
+        }
+      ],
+      "lines": [
+        {
+          "key": "No",
+          "values": [
+            849
+          ]
+        },
+        {
+          "key": "Yes",
+          "values": [
+            850
+          ]
+        }
+      ],
+      "internet": [
+        {
+          "key": "DSL",
+          "values": [
+            459
+          ]
+        },
+        {
+          "key": "Fiber optic",
+          "values": [
+            1297
+          ]
+        },
+        {
+          "key": "No",
+          "values": [
+            113
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "retention",
+    "page": 2,
+    "name": "default",
+    "filters": {},
+    "expected": {
+      "internet-risk": [
+        {
+          "key": "DSL",
+          "values": [
+            18.95910780669145,
+            2421
+          ]
+        },
+        {
+          "key": "Fiber optic",
+          "values": [
+            41.89276485788114,
+            3096
+          ]
+        },
+        {
+          "key": "No",
+          "values": [
+            7.404980340760157,
+            1526
+          ]
+        }
+      ],
+      "tickets": [
+        {
+          "key": "No",
+          "values": [
+            2747.0,
+            782.0
+          ]
+        },
+        {
+          "key": "Yes",
+          "values": [
+            885.0,
+            2173.0
+          ]
+        }
+      ],
+      "charges": [
+        {
+          "key": "No",
+          "values": [
+            4761394.35,
+            7440365.5,
+            991481.95
+          ]
+        },
+        {
+          "key": "Yes",
+          "values": [
+            360016.49999999994,
+            2483257.4499999997,
+            19652.95
+          ]
+        }
+      ],
+      "payment-risk": [
+        {
+          "key": "Bank transfer (automatic)",
+          "values": [
+            16.709844559585495,
+            103745.45000000001
+          ]
+        },
+        {
+          "key": "Credit card (automatic)",
+          "values": [
+            15.243101182654403,
+            101231.85
+          ]
+        },
+        {
+          "key": "Electronic check",
+          "values": [
+            45.28541226215645,
+            180345.0
+          ]
+        },
+        {
+          "key": "Mailed check",
+          "values": [
+            19.106699751861044,
+            70794.3
+          ]
+        }
+      ],
+      "tenure-0": [
+        {
+          "key": "0–12 months",
+          "values": [
+            51.35406218655968,
+            116086.5
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            37.720488466757125,
+            51081.149999999994
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            32.510288065843625,
+            36122.55
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            33.54430379746836,
+            24781.5
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            27.77777777777778,
+            19346.95
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            22.22222222222222,
+            9875.500000000002
+          ]
+        }
+      ],
+      "tenure-1": [
+        {
+          "key": "0–12 months",
+          "values": [
+            10.483870967741936,
+            4438.900000000001
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            8.121827411167512,
+            8841.1
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            8.0,
+            14524.7
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            13.059701492537313,
+            17568.6
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            13.707165109034266,
+            24116.1
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            12.140575079872203,
+            26327.199999999997
+          ]
+        }
+      ],
+      "tenure-2": [
+        {
+          "key": "0–12 months",
+          "values": [
+            0.0,
+            2104.3499999999995
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            0.0,
+            2907.6
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            2.083333333333333,
+            3911.55
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            2.247191011235955,
+            8184.4
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            3.9711191335740073,
+            15235.2
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            3.1440162271805274,
+            70662.75
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "retention",
+    "page": 1,
+    "name": "churned",
+    "filters": {
+      "churn": [
+        "Yes"
+      ]
+    },
+    "expected": {
+      "gender": [
+        {
+          "key": "Female",
+          "values": [
+            939
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            930
+          ]
+        }
+      ],
+      "demographic-senior": [
+        {
+          "key": "",
+          "values": [
+            25.468164794007492
+          ]
+        }
+      ],
+      "demographic-partner": [
+        {
+          "key": "",
+          "values": [
+            35.79454253611557
+          ]
+        }
+      ],
+      "demographic-dependents": [
+        {
+          "key": "",
+          "values": [
+            17.442482611021937
+          ]
+        }
+      ],
+      "loyalty": [
+        {
+          "key": "0–12 months",
+          "values": [
+            55.48421615837347
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            15.730337078651685
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            9.630818619582666
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            7.758159443552702
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            6.420545746388442
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            4.975922953451043
+          ]
+        }
+      ],
+      "payment": [
+        {
+          "key": "Bank transfer (automatic)",
+          "values": [
+            13.804173354735152
+          ]
+        },
+        {
+          "key": "Credit card (automatic)",
+          "values": [
+            12.413055109684324
+          ]
+        },
+        {
+          "key": "Electronic check",
+          "values": [
+            57.30337078651685
+          ]
+        },
+        {
+          "key": "Mailed check",
+          "values": [
+            16.479400749063668
+          ]
+        }
+      ],
+      "contracts": [
+        {
+          "key": "Month-to-month",
+          "values": [
+            88.55002675227395
+          ]
+        },
+        {
+          "key": "One year",
+          "values": [
+            8.881754949170679
+          ]
+        },
+        {
+          "key": "Two year",
+          "values": [
+            2.568218298555377
+          ]
+        }
+      ],
+      "paperless": [
+        {
+          "key": "No",
+          "values": [
+            469
+          ]
+        },
+        {
+          "key": "Yes",
+          "values": [
+            1400
+          ]
+        }
+      ],
+      "average-charges": [
+        {
+          "key": "monthly",
+          "values": [
+            74.44133226324237
+          ]
+        },
+        {
+          "key": "total",
+          "values": [
+            1531.7960941680042
+          ]
+        }
+      ],
+      "services": [
+        {
+          "key": "phone",
+          "values": [
+            90.90422685928304
+          ]
+        },
+        {
+          "key": "tv",
+          "values": [
+            43.55270197966827
+          ]
+        },
+        {
+          "key": "movies",
+          "values": [
+            43.76672017121455
+          ]
+        },
+        {
+          "key": "protection",
+          "values": [
+            29.159978598180846
+          ]
+        },
+        {
+          "key": "backup",
+          "values": [
+            27.9828785446763
+          ]
+        },
+        {
+          "key": "support",
+          "values": [
+            16.586409844836812
+          ]
+        },
+        {
+          "key": "security",
+          "values": [
+            15.783841626538257
+          ]
+        }
+      ],
+      "lines": [
+        {
+          "key": "No",
+          "values": [
+            849
+          ]
+        },
+        {
+          "key": "Yes",
+          "values": [
+            850
+          ]
+        }
+      ],
+      "internet": [
+        {
+          "key": "DSL",
+          "values": [
+            459
+          ]
+        },
+        {
+          "key": "Fiber optic",
+          "values": [
+            1297
+          ]
+        },
+        {
+          "key": "No",
+          "values": [
+            113
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "retention",
+    "page": 2,
+    "name": "churned",
+    "filters": {
+      "churn": [
+        "Yes"
+      ]
+    },
+    "expected": {
+      "internet-risk": [
+        {
+          "key": "DSL",
+          "values": [
+            100.0,
+            459
+          ]
+        },
+        {
+          "key": "Fiber optic",
+          "values": [
+            100.0,
+            1297
+          ]
+        },
+        {
+          "key": "No",
+          "values": [
+            100.0,
+            113
+          ]
+        }
+      ],
+      "tickets": [
+        {
+          "key": "Yes",
+          "values": [
+            885.0,
+            2173.0
+          ]
+        }
+      ],
+      "charges": [
+        {
+          "key": "Yes",
+          "values": [
+            360016.49999999994,
+            2483257.4499999997,
+            19652.95
+          ]
+        }
+      ],
+      "payment-risk": [
+        {
+          "key": "Bank transfer (automatic)",
+          "values": [
+            100.0,
+            20091.899999999998
+          ]
+        },
+        {
+          "key": "Credit card (automatic)",
+          "values": [
+            100.0,
+            17946.6
+          ]
+        },
+        {
+          "key": "Electronic check",
+          "values": [
+            100.0,
+            84288.75
+          ]
+        },
+        {
+          "key": "Mailed check",
+          "values": [
+            100.0,
+            16803.6
+          ]
+        }
+      ],
+      "tenure-0": [
+        {
+          "key": "0–12 months",
+          "values": [
+            100.0,
+            68301.45
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            100.0,
+            21980.299999999996
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            100.0,
+            13416.95
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            100.0,
+            9140.05
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            100.0,
+            5684.45
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            100.0,
+            2323.9
+          ]
+        }
+      ],
+      "tenure-1": [
+        {
+          "key": "0–12 months",
+          "values": [
+            100.0,
+            652.8
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            100.0,
+            1101.35
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            100.0,
+            1701.7500000000002
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            100.0,
+            2819.6000000000004
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            100.0,
+            4034.4
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            100.0,
+            3808.5499999999997
+          ]
+        }
+      ],
+      "tenure-2": [
+        {
+          "key": "0–12 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            100.0,
+            49.25
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            100.0,
+            334.9
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            100.0,
+            863.0500000000001
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            100.0,
+            2918.0999999999995
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "retention",
+    "page": 1,
+    "name": "intersection",
+    "filters": {
+      "contract": [
+        "Month-to-month"
+      ],
+      "internet": [
+        "Fiber optic"
+      ]
+    },
+    "expected": {
+      "gender": [
+        {
+          "key": "Female",
+          "values": [
+            599
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            563
+          ]
+        }
+      ],
+      "demographic-senior": [
+        {
+          "key": "",
+          "values": [
+            31.669535283993117
+          ]
+        }
+      ],
+      "demographic-partner": [
+        {
+          "key": "",
+          "values": [
+            35.9724612736661
+          ]
+        }
+      ],
+      "demographic-dependents": [
+        {
+          "key": "",
+          "values": [
+            14.199655765920827
+          ]
+        }
+      ],
+      "loyalty": [
+        {
+          "key": "0–12 months",
+          "values": [
+            55.33562822719449
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            18.502581755593802
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            11.962134251290877
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            7.487091222030981
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            4.733218588640275
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            1.9793459552495698
+          ]
+        }
+      ],
+      "payment": [
+        {
+          "key": "Bank transfer (automatic)",
+          "values": [
+            12.822719449225472
+          ]
+        },
+        {
+          "key": "Credit card (automatic)",
+          "values": [
+            10.499139414802066
+          ]
+        },
+        {
+          "key": "Electronic check",
+          "values": [
+            67.90017211703959
+          ]
+        },
+        {
+          "key": "Mailed check",
+          "values": [
+            8.777969018932874
+          ]
+        }
+      ],
+      "contracts": [
+        {
+          "key": "Month-to-month",
+          "values": [
+            100.0
+          ]
+        }
+      ],
+      "paperless": [
+        {
+          "key": "No",
+          "values": [
+            200
+          ]
+        },
+        {
+          "key": "Yes",
+          "values": [
+            962
+          ]
+        }
+      ],
+      "average-charges": [
+        {
+          "key": "monthly",
+          "values": [
+            86.47332185886403
+          ]
+        },
+        {
+          "key": "total",
+          "values": [
+            1490.2345094664372
+          ]
+        }
+      ],
+      "services": [
+        {
+          "key": "phone",
+          "values": [
+            100.0
+          ]
+        },
+        {
+          "key": "tv",
+          "values": [
+            48.88123924268503
+          ]
+        },
+        {
+          "key": "movies",
+          "values": [
+            48.19277108433735
+          ]
+        },
+        {
+          "key": "protection",
+          "values": [
+            29.08777969018933
+          ]
+        },
+        {
+          "key": "backup",
+          "values": [
+            27.796901893287433
+          ]
+        },
+        {
+          "key": "support",
+          "values": [
+            11.101549053356283
+          ]
+        },
+        {
+          "key": "security",
+          "values": [
+            11.273666092943202
+          ]
+        }
+      ],
+      "lines": [
+        {
+          "key": "No",
+          "values": [
+            496
+          ]
+        },
+        {
+          "key": "Yes",
+          "values": [
+            666
+          ]
+        }
+      ],
+      "internet": [
+        {
+          "key": "Fiber optic",
+          "values": [
+            1162
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "retention",
+    "page": 2,
+    "name": "intersection",
+    "filters": {
+      "contract": [
+        "Month-to-month"
+      ],
+      "internet": [
+        "Fiber optic"
+      ]
+    },
+    "expected": {
+      "internet-risk": [
+        {
+          "key": "Fiber optic",
+          "values": [
+            54.60526315789473,
+            2128
+          ]
+        }
+      ],
+      "tickets": [
+        {
+          "key": "No",
+          "values": [
+            528.0,
+            119.0
+          ]
+        },
+        {
+          "key": "Yes",
+          "values": [
+            566.0,
+            1144.0
+          ]
+        }
+      ],
+      "charges": [
+        {
+          "key": "No",
+          "values": [
+            0.0,
+            2459900.05,
+            0.0
+          ]
+        },
+        {
+          "key": "Yes",
+          "values": [
+            0.0,
+            1731652.5,
+            0.0
+          ]
+        }
+      ],
+      "payment-risk": [
+        {
+          "key": "Bank transfer (automatic)",
+          "values": [
+            45.56574923547401,
+            28859.0
+          ]
+        },
+        {
+          "key": "Credit card (automatic)",
+          "values": [
+            41.63822525597269,
+            25773.85
+          ]
+        },
+        {
+          "key": "Electronic check",
+          "values": [
+            60.3672532517215,
+            113948.1
+          ]
+        },
+        {
+          "key": "Mailed check",
+          "values": [
+            50.74626865671642,
+            16600.15
+          ]
+        }
+      ],
+      "tenure-0": [
+        {
+          "key": "0–12 months",
+          "values": [
+            70.19650655021834,
+            75183.15
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            50.588235294117645,
+            37205.09999999999
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            44.983818770226534,
+            27818.15
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            41.0377358490566,
+            19717.3
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            31.60919540229885,
+            16250.400000000001
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            25.0,
+            9007.000000000004
+          ]
+        }
+      ],
+      "tenure-1": [
+        {
+          "key": "0–12 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            0,
+            0.0
+          ]
+        }
+      ],
+      "tenure-2": [
+        {
+          "key": "0–12 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            0,
+            0.0
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "retention",
+    "page": 1,
+    "name": "zero-tenure",
+    "filters": {
+      "tenure": [
+        0
+      ]
+    },
+    "expected": {
+      "gender": [],
+      "demographic-senior": [
+        {
+          "key": "",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "demographic-partner": [
+        {
+          "key": "",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "demographic-dependents": [
+        {
+          "key": "",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "loyalty": [
+        {
+          "key": "0–12 months",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "payment": [],
+      "contracts": [],
+      "paperless": [],
+      "average-charges": [
+        {
+          "key": "monthly",
+          "values": [
+            null
+          ]
+        },
+        {
+          "key": "total",
+          "values": [
+            null
+          ]
+        }
+      ],
+      "services": [
+        {
+          "key": "phone",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "tv",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "movies",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "protection",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "backup",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "support",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "security",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "lines": [],
+      "internet": []
+    }
+  },
+  {
+    "report": "retention",
+    "page": 2,
+    "name": "zero-tenure",
+    "filters": {
+      "tenure": [
+        0
+      ]
+    },
+    "expected": {
+      "internet-risk": [
+        {
+          "key": "DSL",
+          "values": [
+            0.0,
+            5
+          ]
+        },
+        {
+          "key": "No",
+          "values": [
+            0.0,
+            6
+          ]
+        }
+      ],
+      "tickets": [
+        {
+          "key": "No",
+          "values": [
+            11.0,
+            0.0
+          ]
+        }
+      ],
+      "charges": [
+        {
+          "key": "No",
+          "values": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "payment-risk": [
+        {
+          "key": "Bank transfer (automatic)",
+          "values": [
+            0.0,
+            114.44999999999999
+          ]
+        },
+        {
+          "key": "Credit card (automatic)",
+          "values": [
+            0.0,
+            56.05
+          ]
+        },
+        {
+          "key": "Mailed check",
+          "values": [
+            0.0,
+            285.1
+          ]
+        }
+      ],
+      "tenure-0": [
+        {
+          "key": "0–12 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            0,
+            0.0
+          ]
+        }
+      ],
+      "tenure-1": [
+        {
+          "key": "0–12 months",
+          "values": [
+            0.0,
+            19.7
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            0,
+            0.0
+          ]
+        }
+      ],
+      "tenure-2": [
+        {
+          "key": "0–12 months",
+          "values": [
+            0.0,
+            435.9
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            0,
+            0.0
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "retention",
+    "page": 1,
+    "name": "empty",
+    "filters": {
+      "id": [
+        "missing"
+      ]
+    },
+    "expected": {
+      "gender": [],
+      "demographic-senior": [
+        {
+          "key": "",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "demographic-partner": [
+        {
+          "key": "",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "demographic-dependents": [
+        {
+          "key": "",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "loyalty": [
+        {
+          "key": "0–12 months",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "payment": [],
+      "contracts": [],
+      "paperless": [],
+      "average-charges": [
+        {
+          "key": "monthly",
+          "values": [
+            null
+          ]
+        },
+        {
+          "key": "total",
+          "values": [
+            null
+          ]
+        }
+      ],
+      "services": [
+        {
+          "key": "phone",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "tv",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "movies",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "protection",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "backup",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "support",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "security",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "lines": [],
+      "internet": []
+    }
+  },
+  {
+    "report": "retention",
+    "page": 2,
+    "name": "empty",
+    "filters": {
+      "id": [
+        "missing"
+      ]
+    },
+    "expected": {
+      "internet-risk": [],
+      "tickets": [],
+      "charges": [],
+      "payment-risk": [],
+      "tenure-0": [
+        {
+          "key": "0–12 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            0,
+            0.0
+          ]
+        }
+      ],
+      "tenure-1": [
+        {
+          "key": "0–12 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            0,
+            0.0
+          ]
+        }
+      ],
+      "tenure-2": [
+        {
+          "key": "0–12 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "13–24 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "25–36 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "37–48 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "49–60 months",
+          "values": [
+            0,
+            0.0
+          ]
+        },
+        {
+          "key": "61–72 months",
+          "values": [
+            0,
+            0.0
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "inclusion",
+    "page": 1,
+    "name": "default",
+    "filters": {},
+    "expected": {
+      "hiring": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            2,
+            14
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            5,
+            32
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            10,
+            46
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            30,
+            52
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            49,
+            56
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            109,
+            95
+          ]
+        }
+      ],
+      "promotions": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            1,
+            3,
+            25.0
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            1,
+            3,
+            25.0
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            3,
+            7,
+            30.0
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            2,
+            13,
+            13.333333333333334
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            11,
+            7,
+            61.111111111111114
+          ]
+        }
+      ],
+      "time-level": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            3.0,
+            1.8571428571428572
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            3.4,
+            3.09375
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            1.8,
+            2.3260869565217392
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            2.3666666666666667,
+            2.4615384615384617
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            2.2857142857142856,
+            2.6785714285714284
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            2.128440366972477,
+            2.2
+          ]
+        }
+      ],
+      "turnover-rating-0": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            2.0,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            2.3333333333333335,
+            null
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            2.6666666666666665,
+            3.0
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            2.6470588235294117,
+            2.5
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            2.3225806451612905,
+            2.75
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            2.589041095890411,
+            3.0
+          ]
+        }
+      ],
+      "turnover-rating-1": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            2.4444444444444446,
+            3.0
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            2.5217391304347827,
+            3.6666666666666665
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            2.4285714285714284,
+            3.25
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            2.3863636363636362,
+            3.0
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            2.41025641025641,
+            3.0
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            2.7666666666666666,
+            2.888888888888889
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "inclusion",
+    "page": 2,
+    "name": "default",
+    "filters": {},
+    "expected": {
+      "ratings": [
+        {
+          "key": "Female",
+          "values": [
+            7,
+            86,
+            60,
+            7
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            12,
+            138,
+            91,
+            12
+          ]
+        }
+      ],
+      "executive20": [
+        {
+          "key": "Female",
+          "values": [
+            2
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            14
+          ]
+        }
+      ],
+      "executive21": [
+        {
+          "key": "Female",
+          "values": [
+            3
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            16
+          ]
+        }
+      ],
+      "executive-hires": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            4
+          ]
+        }
+      ],
+      "executive-promotions": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            2
+          ]
+        }
+      ],
+      "ages": [
+        {
+          "key": "16 to 19",
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            6
+          ]
+        },
+        {
+          "key": "20 to 29",
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            55,
+            160
+          ]
+        },
+        {
+          "key": "30 to 39",
+          "values": [
+            2,
+            12,
+            37,
+            66,
+            41,
+            3
+          ]
+        },
+        {
+          "key": "40 to 49",
+          "values": [
+            13,
+            19,
+            19,
+            13,
+            0,
+            0
+          ]
+        },
+        {
+          "key": "50 to 59",
+          "values": [
+            2,
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "key": "60 to 69",
+          "values": [
+            2,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "inclusion",
+    "page": 1,
+    "name": "department",
+    "filters": {
+      "department": [
+        "Operations"
+      ]
+    },
+    "expected": {
+      "hiring": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            0,
+            1
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            2,
+            9
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            4,
+            16
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            11,
+            19
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            25,
+            14
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            58,
+            44
+          ]
+        }
+      ],
+      "promotions": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            0,
+            0,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            0,
+            0,
+            null
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            1,
+            2,
+            33.33333333333333
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            1,
+            5,
+            16.666666666666664
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            5,
+            2,
+            71.42857142857143
+          ]
+        }
+      ],
+      "time-level": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            null,
+            1.0
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            2.5,
+            2.0
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            1.5,
+            2.0
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            1.8181818181818181,
+            2.3684210526315788
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            2.36,
+            3.2142857142857144
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            2.1379310344827585,
+            2.159090909090909
+          ]
+        }
+      ],
+      "turnover-rating-0": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            3.0,
+            null
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            2.5,
+            3.0
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            2.3684210526315788,
+            2.6666666666666665
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            2.6153846153846154,
+            3.0
+          ]
+        }
+      ],
+      "turnover-rating-1": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            2.0,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            2.0,
+            null
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            2.3636363636363638,
+            3.0
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            2.3333333333333335,
+            3.0
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            2.3,
+            3.0
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            2.72,
+            2.8333333333333335
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "inclusion",
+    "page": 2,
+    "name": "department",
+    "filters": {
+      "department": [
+        "Operations"
+      ]
+    },
+    "expected": {
+      "ratings": [
+        {
+          "key": "Female",
+          "values": [
+            2,
+            43,
+            34,
+            3
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            3,
+            44,
+            38,
+            5
+          ]
+        }
+      ],
+      "executive20": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "executive21": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "executive-hires": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "executive-promotions": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "ages": [
+        {
+          "key": "16 to 19",
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ]
+        },
+        {
+          "key": "20 to 29",
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            16,
+            80
+          ]
+        },
+        {
+          "key": "30 to 39",
+          "values": [
+            0,
+            4,
+            14,
+            23,
+            19,
+            1
+          ]
+        },
+        {
+          "key": "40 to 49",
+          "values": [
+            1,
+            5,
+            7,
+            7,
+            0,
+            0
+          ]
+        },
+        {
+          "key": "50 to 59",
+          "values": [
+            0,
+            1,
+            1,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "inclusion",
+    "page": 1,
+    "name": "intersection",
+    "filters": {
+      "department": [
+        "Operations"
+      ],
+      "age": [
+        "30 to 39"
+      ]
+    },
+    "expected": {
+      "hiring": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            0,
+            0
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            1,
+            3
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            1,
+            11
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            3,
+            17
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            14,
+            7
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            5,
+            3
+          ]
+        }
+      ],
+      "promotions": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            0,
+            0,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            0,
+            0,
+            null
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            0,
+            2,
+            0.0
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            0,
+            5,
+            0.0
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            3,
+            0,
+            100.0
+          ]
+        }
+      ],
+      "time-level": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            0.0,
+            2.3333333333333335
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            0.0,
+            1.9090909090909092
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            1.0,
+            2.0
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            2.142857142857143,
+            3.2857142857142856
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            3.2,
+            2.3333333333333335
+          ]
+        }
+      ],
+      "turnover-rating-0": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            2.0,
+            null
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            2.3846153846153846,
+            null
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            2.6666666666666665,
+            3.0
+          ]
+        }
+      ],
+      "turnover-rating-1": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            2.0,
+            null
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            2.375,
+            null
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            2.3333333333333335,
+            null
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            2.1666666666666665,
+            null
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            null,
+            3.0
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "inclusion",
+    "page": 2,
+    "name": "intersection",
+    "filters": {
+      "department": [
+        "Operations"
+      ],
+      "age": [
+        "30 to 39"
+      ]
+    },
+    "expected": {
+      "ratings": [
+        {
+          "key": "Female",
+          "values": [
+            0,
+            11,
+            8,
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            2,
+            19,
+            12,
+            2
+          ]
+        }
+      ],
+      "executive20": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "executive21": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "executive-hires": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "executive-promotions": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "ages": [
+        {
+          "key": "30 to 39",
+          "values": [
+            0,
+            4,
+            14,
+            23,
+            19,
+            1
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "inclusion",
+    "page": 1,
+    "name": "region",
+    "filters": {
+      "region": [
+        "Europe"
+      ]
+    },
+    "expected": {
+      "hiring": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            1,
+            6
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            2,
+            8
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            5,
+            19
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            19,
+            24
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            26,
+            21
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            51,
+            42
+          ]
+        }
+      ],
+      "promotions": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            0,
+            1,
+            0.0
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            1,
+            2,
+            33.33333333333333
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            0,
+            3,
+            0.0
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            1,
+            3,
+            25.0
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            6,
+            3,
+            66.66666666666666
+          ]
+        }
+      ],
+      "time-level": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            4.0,
+            1.3333333333333333
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            4.0,
+            3.375
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            2.2,
+            2.263157894736842
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            2.1052631578947367,
+            2.2916666666666665
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            2.269230769230769,
+            2.5238095238095237
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            2.0784313725490198,
+            2.2142857142857144
+          ]
+        }
+      ],
+      "turnover-rating-0": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            2.0,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            3.0,
+            null
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            2.5,
+            null
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            2.4545454545454546,
+            2.5
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            2.2,
+            2.6666666666666665
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            2.6285714285714286,
+            3.0
+          ]
+        }
+      ],
+      "turnover-rating-1": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            2.25,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            2.7142857142857144,
+            4.0
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            2.625,
+            3.0
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            2.227272727272727,
+            3.0
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            2.230769230769231,
+            3.0
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            2.740740740740741,
+            2.75
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "inclusion",
+    "page": 2,
+    "name": "region",
+    "filters": {
+      "region": [
+        "Europe"
+      ]
+    },
+    "expected": {
+      "ratings": [
+        {
+          "key": "Female",
+          "values": [
+            1,
+            43,
+            33,
+            3
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            5,
+            57,
+            35,
+            7
+          ]
+        }
+      ],
+      "executive20": [
+        {
+          "key": "Female",
+          "values": [
+            1
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            6
+          ]
+        }
+      ],
+      "executive21": [
+        {
+          "key": "Female",
+          "values": [
+            1
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            7
+          ]
+        }
+      ],
+      "executive-hires": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            2
+          ]
+        }
+      ],
+      "executive-promotions": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            2
+          ]
+        }
+      ],
+      "ages": [
+        {
+          "key": "16 to 19",
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ]
+        },
+        {
+          "key": "20 to 29",
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            24,
+            73
+          ]
+        },
+        {
+          "key": "30 to 39",
+          "values": [
+            1,
+            3,
+            12,
+            32,
+            22,
+            0
+          ]
+        },
+        {
+          "key": "40 to 49",
+          "values": [
+            5,
+            7,
+            10,
+            9,
+            0,
+            0
+          ]
+        },
+        {
+          "key": "50 to 59",
+          "values": [
+            1,
+            0,
+            1,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "key": "60 to 69",
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "inclusion",
+    "page": 1,
+    "name": "empty",
+    "filters": {
+      "id": [
+        "missing"
+      ]
+    },
+    "expected": {
+      "hiring": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            0,
+            0
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            0,
+            0
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            0,
+            0
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            0,
+            0
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            0,
+            0
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            0,
+            0
+          ]
+        }
+      ],
+      "promotions": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            0,
+            0,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            0,
+            0,
+            null
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            0,
+            0,
+            null
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            0,
+            0,
+            null
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            0,
+            0,
+            null
+          ]
+        }
+      ],
+      "time-level": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            null,
+            null
+          ]
+        }
+      ],
+      "turnover-rating-0": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            null,
+            null
+          ]
+        }
+      ],
+      "turnover-rating-1": [
+        {
+          "key": "1 - Executive",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "2 - Director",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "3 - Senior Manager",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "4 - Manager",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "5 - Senior Officer",
+          "values": [
+            null,
+            null
+          ]
+        },
+        {
+          "key": "6 - Junior Officer",
+          "values": [
+            null,
+            null
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "report": "inclusion",
+    "page": 2,
+    "name": "empty",
+    "filters": {
+      "id": [
+        "missing"
+      ]
+    },
+    "expected": {
+      "ratings": [],
+      "executive20": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "executive21": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "executive-hires": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "executive-promotions": [
+        {
+          "key": "Female",
+          "values": [
+            0
+          ]
+        },
+        {
+          "key": "Male",
+          "values": [
+            0
+          ]
+        }
+      ],
+      "ages": []
+    }
+  }
+]

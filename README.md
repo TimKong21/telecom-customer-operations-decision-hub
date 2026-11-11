@@ -1,70 +1,82 @@
 # Telecom Customer Operations Decision Hub
 
-[![Live site](https://img.shields.io/badge/Live%20site-GitHub%20Pages-007C7C?style=flat-square)](https://timkong21.github.io/telecom-customer-operations-decision-hub/)
+An independently hosted, interactive web edition of three Power BI case reports. Visitors explore five report pages with slicers, linked chart selections, KPIs, accessible data tables, and shareable views. No Power BI installation, account, Service, or embedding is required.
 
-A source-driven portfolio product for operational decision support.
+## Reports
 
-## About
-
-This portfolio product is inspired by the [PwC Switzerland Power BI in Data Analytics virtual case experience on Forage](https://www.theforage.com/virtual-internships/prototype/a87GpgE6tiku7q3gu/Power%20BI%20in%20Data%20Analytics?ref=zYi2CnpbWjhcS7sAk). It extends the three case themes into a browser-based decision hub that communicates findings, evidence, and practical next steps for stakeholders.
-
-It is not commissioned, endorsed by, or affiliated with PwC.
-
-## Live product
-
-Visit the [Telecom Customer Operations Decision Hub](https://timkong21.github.io/telecom-customer-operations-decision-hub/).
-
-## Decision areas
-
-| Area | Product focus | Source material |
+| Report | Pages | Data |
 | --- | --- | --- |
-| Service operations | Call demand, resolution outcomes, and agent performance | Task 1: Call Centre Trends |
-| Customer retention | Churn risk signals, customer segments, and intervention priorities | Task 2: Customer Retention |
-| Diversity & inclusion | Representation, promotions, performance, and turnover context | Task 3: Diversity & Inclusion |
+| Call Centre Trends | Call centre performance | 5,000 calls, January–March 2021 |
+| Customer Retention | Churn exploration; customer risk | 7,043 customers |
+| Diversity & Inclusion | Hiring/promotion/turnover; performance/leadership/age | 500 employees |
 
-## How the hub is built
+The browser runs React + TypeScript and Apache ECharts. Python prepares the supplied workbooks into three independently loaded JSON datasets. A shared filter engine updates related charts and KPIs. The original PBIX files specify the report logic; they are not executed in the browser.
 
-The hub is a static, source-driven reporting product. `scripts/analyze_case_data.py` reads the supplied source workbooks and produces [`site/data/case-metrics.json`](site/data/case-metrics.json). The site then renders those metrics as native browser charts, tables, and recommended decision actions.
-
-The live hub is deliberately different from the original Power BI reference files:
-
-- The web product is publicly viewable, responsive, and designed for concise stakeholder reporting.
-- The `.pbix` files remain in the task folders as historical reference materials that can be opened in Power BI Desktop.
-- Original screenshots in [`README assests`](README%20assests) are retained as portfolio evidence; the live charts are calculated from the supplied workbooks rather than embedded from an external dashboard service.
-
-<p align="center">
-  <img src="README%20assests/Project_Themes.png" alt="The three decision areas covered by the hub" style="width: 80%" />
-</p>
+```text
+Source workbooks → validated data snapshots → browser filter context
+                                                   ↓
+                                           measures and visuals
+```
 
 ## Run locally
 
-Prerequisites: Node.js 20+ and Python 3 with `pandas` available.
+Prerequisites: **Node.js 22.12+**, npm, and Python 3.10+. Install Python packages in a virtual environment outside the repository.
 
 ```bash
+python -m pip install -r requirements.txt
+npm ci
 npm run analyze
+npm test
 npm run build
-npm run preview
+npm run dev
 ```
 
-`analyze` regenerates the auditable metrics JSON, `build` creates the static `dist` output, and `preview` prints the local URL to open.
+Open the URL printed by Vite, including `/telecom-customer-operations-decision-hub/`. To inspect the production build, use `npm run preview` instead of `npm run dev`.
 
-## Deploy to GitHub Pages
+On Windows with multiple Node installations, `./scripts/dev.ps1` selects a compatible Node runtime already on PATH. Use `./scripts/dev.ps1 -Production` to preview the build.
 
-The repository uses the existing manual **Deploy GitHub Pages** workflow.
+`analyze` checks source schemas, unique IDs, row counts, missing charges, date coverage, and PBIX specification hashes. It regenerates the data manifest and independent pandas reference cases. `test` checks report measures, every chart series under reference contexts, and filter/link behaviour. `build` type-checks and produces `dist/`.
 
-1. Push the intended commit to `main`.
-2. In GitHub, open **Actions** and select **Deploy GitHub Pages**.
-3. Choose **Run workflow**, retaining the `main` branch.
-4. After the run succeeds, verify the [live hub](https://timkong21.github.io/telecom-customer-operations-decision-hub/).
+## Explore and share
 
-The workflow regenerates the static site and deploys its artifact; do not commit `dist`.
+- Open directly into Call Centre Trends; use the sidebar for the other reports and tabs for report pages.
+- Combine slicers; values within one slicer use OR, and separate slicers use AND.
+- Select chart categories or use **View data & select**. Enable Multi-select or hold Ctrl/Cmd for multiple categories.
+- Choose **Filter**, **Highlight**, or **Off** for chart interactions. Highlight preserves comparison baselines; selected totals update in cards and tables.
+- Remove individual filter chips, clear chart selections, or Reset report. Fixed report/visual cohorts remain in place.
+- Share view copies a URL containing the current report, page, and filter state. Slicer state is separate for each report and persists between that report’s pages during the session.
 
-## Evidence and limitations
+Historical `service-operations.html`, `customer-retention.html`, and `diversity-inclusion.html` links redirect to the corresponding explorer report.
 
-- This is portfolio-case data, not a live telecom operating system or a production decision engine.
-- The visual relationships are descriptive associations; they do not establish causality.
-- The supplied Diversity & Inclusion PBIX reference reports 10.1% turnover. The supplied workbook calculates 9.4% (47 of 500 FY20 leavers); the web hub displays the auditable workbook result and calls out this reconciliation.
+## Calculation fidelity
 
-## License and case-material notice
+All **30 named DAX measures** and all five PBIX layouts were extracted. Retained workbook input projections were compared to **12,543 embedded model records**. Original filters and fiscal-year groupings are preserved in the calculation specifications.
 
-Author-created code and documentation are available under the [MIT License](LICENSE). The supplied workbooks, PBIX files, reference screenshots, external marks, and other case materials are excluded from that grant; see [NOTICE.md](NOTICE.md).
+The former website independently summarized the workbooks. This version corrects several differences, including FY21 promotion grouping, FY19 turnover ratings, and turnover itself: the original average-headcount denominator reproduces **10.1%**, rather than the former site’s 9.4%.
+
+See [fidelity and differences](docs/report-fidelity.md), [extracted specifications](docs/reference/reports.json), and [embedded-input checks](docs/reference/model-data-validation.json). Browser implementations and independent arithmetic controls do not establish complete native Power BI rendering or interaction parity; live DAX execution was not performed.
+
+Optional extraction tools are separate from the build/runtime:
+
+```bash
+python -m pip install -r requirements-extract.txt
+npm run extract
+python scripts/validate_model_data.py
+npm run analyze
+```
+
+Original source reports and workbooks remain unchanged. `site/` and the original summary scripts are retained as historical implementation material; Vite builds the new application from `index.html`, `src/`, and `public/`.
+
+## GitHub Pages deployment
+
+The **Deploy GitHub Pages** workflow remains manual. It installs locked dependencies, regenerates data, checks for stale generated outputs, runs tests, builds the application, and deploys `dist/`. Push/PR validation does not deploy.
+
+After review, push the intended release commit to `main`, then run the existing deployment workflow on `main`. This implementation branch has not been published. The existing live site remains unchanged until that workflow is run.
+
+The Vite base path is `/telecom-customer-operations-decision-hub/`. Hash-based routing supports refreshed deep links on GitHub Pages. The same static output can be hosted by Vercel or Netlify; update the base path if using a domain root. No server/database is required.
+
+## Case-material notice
+
+This independent portfolio project is inspired by the PwC Switzerland / Forage Power BI case experience and is not commissioned, endorsed by, or affiliated with PwC.
+
+Author-created software and documentation use the [MIT License](LICENSE). Supplied workbooks, PBIX files, reference screenshots, trademarks, and case materials are excluded; see [NOTICE.md](NOTICE.md). Public snapshots are downloadable. Source identifiers and unused attributes are omitted, but this is not an access-control guarantee. Confirm applicable case-data redistribution terms before public release of detailed snapshots.
