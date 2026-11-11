@@ -1,12 +1,11 @@
 """Compare retained workbook fields with decoded embedded model rows, keyed by source ID."""
-import datetime as dt
 import json
 from pathlib import Path
 
 import pandas as pd
 from pbixray import PBIXRay
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 checks = []
 retained = {
     'Sheet1': ['Agent', 'Date', 'DateTime', 'Topic', 'Answered (Y/N)', 'Resolved', 'Speed of answer in secs', 'Satisfaction rating'],
@@ -15,7 +14,7 @@ retained = {
         'In base group for Promotion FY21', 'FY20 leaver?', 'In base group for turnover FY20', 'Leaver FY',
         'Last Department in FY20', 'Age group', 'Broad region group: nationality 1', 'Time in Job Level @01.07.2020'],
 }
-for path in sorted(ROOT.glob('Task*/*.pbix')):
+for path in sorted(ROOT.glob('reports/Task*/*.pbix')):
     model = PBIXRay(str(path))
     table = next(t for t in model.tables if t in ['Sheet1', '01 Churn-Dataset', 'Pharma Group AG'])
     embedded = model.get_table(table)

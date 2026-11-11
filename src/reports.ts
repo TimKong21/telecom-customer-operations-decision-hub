@@ -51,7 +51,7 @@ export const reportInfo = {
     description:
       "Explore demand, response times, and resolution across the call centre.",
     pages: ["Call centre performance"],
-    period: "January–March 2021",
+    period: null,
   },
   retention: {
     name: "Customer Retention",
@@ -59,7 +59,7 @@ export const reportInfo = {
     description:
       "Understand who leaves, the services they use, and where churn concentrates.",
     pages: ["Churn exploration", "Customer risk"],
-    period: "Customer case snapshot",
+    period: null,
   },
   inclusion: {
     name: "Diversity & Inclusion",
@@ -466,7 +466,7 @@ export function charts(
         "lines",
         {
           kind: "donut",
-          note: "Excludes “No phone service”, matching the original visual.",
+          note: "Excludes customers without phone service.",
         },
         { lines: ["Yes", "No"] },
       ),
@@ -564,7 +564,7 @@ export function charts(
         {
           horizontal: true,
           wide: true,
-          note: "The original “Hiring history” visual includes the full workforce, not only new hires.",
+          note: "Includes the full workforce, not only new hires.",
         },
         {},
         levels,
@@ -692,7 +692,7 @@ export function charts(
         stacked: true,
         wide: true,
         subtitle:
-          "Employees with blank Leaver FY only, matching the original visual",
+          "Current employees by age group and FY21 job level",
       },
       { leaverFY: [null] },
     ),

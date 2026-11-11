@@ -128,24 +128,10 @@ export default function App() {
   const [data, setData] = useState<Row[] | null>(null);
   const [error, setError] = useState("");
   const [retry, setRetry] = useState(0);
-  const [methodology, setMethodology] = useState(false);
-  const methodTrigger = useRef<HTMLElement | null>(null);
-  const toggleMethodology = () => {
-    if (!methodology)
-      methodTrigger.current = document.activeElement as HTMLElement;
-    setMethodology((v) => !v);
-  };
-  useEffect(() => {
-    if (methodology) document.getElementById("methodology")?.focus();
-    else if (methodTrigger.current) {
-      methodTrigger.current.focus({ preventScroll: true });
-      methodTrigger.current = null;
-    }
-  }, [methodology]);
   const [multi, setMulti] = useState(false);
   const [copied, setCopied] = useState(false);
   const [manifest, setManifest] = useState<{
-    datasets: Record<string, { rows: number; source: string }>;
+    datasets: Record<string, { rows: number }>;
   } | null>(null);
   useEffect(() => {
     fetch(`${base}data/manifest.json`)
@@ -242,12 +228,8 @@ export default function App() {
     else delete filters[field];
     update({ ...state, filters });
   };
-  const effectiveContext = context;
-  const boundedCharts = visualModels;
-  const boundedHighlights = highlighted;
-  const boundedMetrics = metrics;
   const sourceRows = manifest?.datasets[report]?.rows ?? data?.length ?? 0;
-  const selectedCount = rows(effectiveContext).length;
+  const selectedCount = rows(context).length;
   const hasFilters =
     Object.keys(state.filters).length > 0 || state.selections.length > 0;
   return (
@@ -306,39 +288,15 @@ export default function App() {
             </a>
           ))}
         </nav>
-        <div className="sidebar-bottom">
-          <span className="independent">
-            <i /> Independent & interactive
-          </span>
-          <p>
-            Built from the original case reports. Explore the data at your own
-            pace.
-          </p>
-          <button
-            className="sidebar-method"
-            onClick={toggleMethodology}
-            aria-expanded={methodology}
-          >
-            About this report explorer
-          </button>
-          <a
-            href="https://github.com/TimKong21/telecom-customer-operations-decision-hub"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View source on GitHub ↗
-          </a>
-        </div>
       </aside>
       <div className="workspace">
         <header className="topbar">
           <span>Telecom Customer Operations Decision Hub</span>
-          <span className="case-badge">Portfolio case data</span>
         </header>
         <main id="report-content" tabIndex={-1}>
           <div className="report-intro">
             <div>
-              <p className="period">{info.period}</p>
+              {info.period && <p className="period">{info.period}</p>}
               <h1>{info.name}</h1>
               <p className="intro-description">{info.description}</p>
             </div>
@@ -379,68 +337,6 @@ export default function App() {
               {page} / {info.pages.length}
             </span>
           </div>
-          {methodology && (
-            <section
-              id="methodology"
-              tabIndex={-1}
-              className="methodology"
-              aria-label="About this report explorer"
-            >
-              <div className="method-title">
-                <h2>Your reports, independently hosted</h2>
-                <button
-                  aria-label="Close report information"
-                  onClick={() => setMethodology(false)}
-                >
-                  ×
-                </button>
-              </div>
-              <p>
-                Charts and calculations are rebuilt from the three original
-                Power BI reports and source workbooks. No Microsoft account or
-                Power BI Service is used. All data is a fixed case snapshot.
-              </p>
-              <div className="method-columns">
-                <div>
-                  <h3>Calculation fidelity</h3>
-                  <p>
-                    All 30 named DAX measures were extracted. FY20 turnover is
-                    47 / ((434 + 500) / 2) = 10.1%. Promotion charts use the
-                    FY21 job level; turnover comparisons use FY19 ratings. Blank
-                    charges remain blank in averages.
-                  </p>
-                </div>
-                <div>
-                  <h3>Web adaptations</h3>
-                  <p>
-                    Responsive layouts, persistent slicers between report pages,
-                    linked chart filtering, and retention slicers are web
-                    enhancements. Choose Highlight for comparative overlays, or
-                    Off to disable chart selection. Original interaction
-                    defaults have not been validated in Desktop.
-                  </p>
-                </div>
-                <div>
-                  <h3>Source & limitations</h3>
-                  <p>
-                    {manifest?.datasets[report]?.source ??
-                      "Source workbook in the repository"}
-                    . Model expressions and independent calculation tests
-                    support validation; no live DAX engine was used. Read the
-                    complete{" "}
-                    <a
-                      href={`${base}methodology.txt`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      fidelity notes
-                    </a>
-                    .
-                  </p>
-                </div>
-              </div>
-            </section>
-          )}
           {error ? (
             <section role="alert" className="load-state">
               <h2>Report unavailable</h2>
@@ -609,7 +505,7 @@ export default function App() {
                 </div>
               )}
               <div className="kpi-grid">
-                {boundedMetrics.map((kpi) => (
+                {metrics.map((kpi) => (
                   <section
                     className="kpi"
                     key={kpi.label}
@@ -635,22 +531,15 @@ export default function App() {
                   </section>
                 ))}
               </div>
-              {report === "inclusion" && page === 1 && (
-                <p className="reconciliation-note">
-                  Turnover follows the original DAX: leavers ÷ average
-                  before/after-hire headcount. The previous hub used total
-                  headcount and displayed 9.4%.
-                </p>
-              )}
               <div
                 className={`report-grid ${report === "calls" ? "calls-grid" : ""}`}
               >
                 <Suspense fallback={<p role="status">Loading charts…</p>}>
-                  {boundedCharts.map((model) => (
+                  {visualModels.map((model) => (
                     <Chart
                       key={`${report}-${page}-${model.id}`}
                       model={model}
-                      highlighted={boundedHighlights.find(
+                      highlighted={highlighted.find(
                         (h) => h.id === model.id,
                       )}
                       selections={state.selections}
@@ -687,7 +576,7 @@ export default function App() {
                       </thead>
                       <tbody>
                         {agentStatistics({
-                          ...effectiveContext,
+                          ...context,
                           target: "agent-statistics",
                         }).map((a) => (
                           <tr key={a.agent}>
@@ -722,31 +611,13 @@ export default function App() {
                   </div>
                 </section>
               )}
-              <section className="decision-note">
-                <div>
-                  <h2>Put the view in context</h2>
-                  <p>
-                    {report === "calls"
-                      ? "Compare answer speed, satisfaction, and resolution together before interpreting differences between agents or topics."
-                      : report === "retention"
-                        ? "Compare churn rates with segment size and ticket demand. These patterns describe associations, not the effects of an intervention."
-                        : "Read promotion shares alongside workforce representation and eligibility. Small cohorts can produce large percentage changes."}
-                  </p>
-                </div>
-                <button className="text-button" onClick={toggleMethodology}>
-                  {methodology
-                    ? "Hide methodology"
-                    : "Methodology & differences"}
-                </button>
-              </section>
             </>
           )}
           <footer>
             <span>
-              Independent portfolio project inspired by the PwC / Forage case
-              experience. No affiliation or endorsement.
+              Based on PwC / Forage case materials. No affiliation or endorsement.
             </span>
-            <span>Fixed case data. No live feed.</span>
+            <a href={`${base}case-material-notice.txt`}>Case material notice</a>
           </footer>
         </main>
       </div>

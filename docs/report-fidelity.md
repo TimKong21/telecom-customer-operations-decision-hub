@@ -22,15 +22,15 @@ The TypeScript measure functions and every rendered chart series are checked aga
 | Tenure | Original inclusive boundaries at 12, 24, 36, 48, 60, 72 months. Labels now state the actual intervals, e.g. 0–12 months, instead of the original misleading `< 1 year`. No records exceed 72 months. |
 | Hiring shares | The original measure counts women / (men + women), and vice versa, in context. The original “Hiring history” bar includes all employees. Labels in the web KPIs say workforce share to avoid implying only new hires. |
 | Promotions | Counts of FY21 promoted employees, grouped by job level **after FY21 promotions**. Women’s share divides women promoted by all promoted, not by eligible women. The separate eligible-employee promotion rate is not substituted for this measure. |
-| Turnover | Original DAX: leavers / ((before-hire headcount + after-hire headcount) / 2). Default: `47 / ((434 + 500) / 2) = 10.0642398%`, displayed **10.1%**. This resolves the previous website’s 9.4% difference. |
-| Turnover ratings | Average **FY19** ratings by FY20 level and FY20 leaver status, shown separately for women and men. The former website used FY20 ratings instead. |
+| Turnover | Original DAX: leavers / ((before-hire headcount + after-hire headcount) / 2). Default: `47 / ((434 + 500) / 2) = 10.0642398%`, displayed **10.1%**. |
+| Turnover ratings | Average **FY19** ratings by FY20 level and FY20 leaver status, shown separately for women and men. |
 | Performance | Nonblank FY20 rating distribution and gender-specific average FY20 ratings. CALCULATE gender predicates replace an existing gender filter, as in the original measures. |
 | Executive balance | Four distinct cohorts: FY20 executive level; FY21 executive level; FY20 executives with New hire FY20 = Y; FY20 executives with Promotion in FY20 = Y. |
 | Age | Age distribution by FY21 level includes only blank Leaver FY records. The 20–29 count intersects the age slicer with the visual’s fixed age cohort. |
 
 All rates use original denominators, preserve calculation precision, and round only for display. Null means unavailable; ratios without a denominator show an em dash unless the original measure specifies a zero fallback. Count/sum controls show zero for empty populations. Integer counts are compared exactly; floating-point controls use an absolute tolerance of 0.000001, well below displayed precision.
 
-## Interaction and presentation differences
+## Report interactions and presentation
 
 - The site opens directly into Call Centre Trends. The Decision Hub identity, report themes, and original page groupings are retained. Navigation, typography, colours, responsive layout, accessible data tables, compact currency headlines, and explanatory notes are web adaptations. Full currency values remain in headline titles and data tables.
 - Original Call Centre Date/Topic and D&I Department/Age/Region slicers are supported. Contract/Internet/Payment slicers on retention are additions. Slicer choices persist between pages within a report; each report has independent state. A full browser reload restores the current report's shared URL state only.
@@ -39,7 +39,6 @@ All rates use original denominators, preserve calculation precision, and round o
 - Legend entries identify series; they do not silently hide data or apply report filters. Click chart categories or use View data & select for keyboard-accessible selection. Some aggregate/gauge visuals have no categorical selection because there is no single source category to apply.
 - The D&I Page II layout contains a relationship override from Age slicer ID `1f29f52f761c909e503d` to `68e527b121283bcc761c`. The target ID is absent from both current pages. This orphaned override is retained in the extracted evidence and has no web target; no numeric enum interpretation is assumed.
 - Original visual filters (churn cohort, no-phone-service exclusion, promoted cohort, executive cohorts, nonblank ratings, and blank Leaver FY) remain distinct from user slicers. User selections cannot expand a fixed visual/page cohort. Reset restores default user filters while retaining those cohort rules.
-- Recommendation text is contextual guidance; it does not generate causal claims or predictions from chart selections. The cases are descriptive, fixed snapshots.
 
 ## Public data and provenance
 
@@ -63,9 +62,9 @@ npm run preview
 For optional model extraction and embedded-row validation:
 
 ```text
-python -m pip install -r requirements-extract.txt
+python -m pip install -r tools/powerbi/requirements.txt
 npm run extract
-python scripts/validate_model_data.py
+python tools/powerbi/validate_model_data.py
 ```
 
 Deployment is manual through the existing GitHub Pages workflow. Local implementation and validation do not publish or modify the live site.

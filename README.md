@@ -52,20 +52,32 @@ Historical `service-operations.html`, `customer-retention.html`, and `diversity-
 
 All **30 named DAX measures** and all five PBIX layouts were extracted. Retained workbook input projections were compared to **12,543 embedded model records**. Original filters and fiscal-year groupings are preserved in the calculation specifications.
 
-The former website independently summarized the workbooks. This version corrects several differences, including FY21 promotion grouping, FY19 turnover ratings, and turnover itself: the original average-headcount denominator reproduces **10.1%**, rather than the former site’s 9.4%.
+Report calculations retain FY21 promotion grouping, FY19 turnover ratings, and the average-headcount denominator for turnover. Default FY20 turnover is **10.1%**.
 
 See [fidelity and differences](docs/report-fidelity.md), [extracted specifications](docs/reference/reports.json), and [embedded-input checks](docs/reference/model-data-validation.json). Browser implementations and independent arithmetic controls do not establish complete native Power BI rendering or interaction parity; live DAX execution was not performed.
 
 Optional extraction tools are separate from the build/runtime:
 
 ```bash
-python -m pip install -r requirements-extract.txt
+python -m pip install -r tools/powerbi/requirements.txt
 npm run extract
-python scripts/validate_model_data.py
+python tools/powerbi/validate_model_data.py
 npm run analyze
 ```
 
-Original source reports and workbooks remain unchanged. `site/` and the original summary scripts are retained as historical implementation material; Vite builds the new application from `index.html`, `src/`, and `public/`.
+## Repository layout
+
+| Folder | Purpose |
+| --- | --- |
+| `src/` | React components, report definitions, calculations, and styles |
+| `reports/` | Original PBIX reports and source workbooks, grouped by report |
+| `tests/` | Calculation/interaction tests and generated reference fixtures |
+| `scripts/` | Data preparation, independent reference calculations, and local preview helper |
+| `tools/powerbi/` | Optional PBIX extraction and model validation, with separate dependencies |
+| `docs/` | Calculation documentation, validation evidence, and original reference screenshots |
+| `public/` | Published datasets, required notices, icon, and legacy URL redirects |
+
+Vite builds `index.html`, `src/`, and `public/` into ignored `dist/`. `node_modules/` contains installed application dependencies. Neither is committed. Planning drafts and the superseded website implementation are excluded.
 
 ## GitHub Pages deployment
 

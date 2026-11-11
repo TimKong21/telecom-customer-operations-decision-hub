@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "datasets": {
     "calls": {
-      "source": "Task 1 - Call Centre Trends/01 Call-Center-Dataset.xlsx",
+      "source": "reports/Task 1 - Call Centre Trends/01 Call-Center-Dataset.xlsx",
       "sheet": "Sheet1",
       "rows": 5000,
       "sourceSha256": "fc73caed99c7fe91530dd52519dc5ea77556a30f47ebab5969dee8be195b6935",
@@ -20,7 +20,7 @@
       }
     },
     "retention": {
-      "source": "Task 2 - Customer Retention/02 Churn-Dataset.xlsx",
+      "source": "reports/Task 2 - Customer Retention/02 Churn-Dataset.xlsx",
       "sheet": "01 Churn-Dataset",
       "rows": 7043,
       "sourceSha256": "0f71b4ffadf837b37ad6a8747a2abdbb1b5e9db49d6e5847709ec8af01218760",
@@ -40,7 +40,7 @@
       }
     },
     "inclusion": {
-      "source": "Task 3 - Diversity & Inclusion/03 Diversity-Inclusion-Dataset.xlsx",
+      "source": "reports/Task 3 - Diversity & Inclusion/03 Diversity-Inclusion-Dataset.xlsx",
       "sheet": "Pharma Group AG",
       "rows": 500,
       "sourceSha256": "ae6a595566e3cc8d4e08d2325cbf80005ee79b605c6f1641d36984b30abfc96a",

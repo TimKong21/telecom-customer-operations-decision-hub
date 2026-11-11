@@ -7,11 +7,11 @@ from pathlib import Path
 
 from pbixray import PBIXRay
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / 'docs' / 'reference'
 OUT.mkdir(parents=True, exist_ok=True)
 reports = []
-for path in sorted(ROOT.glob('Task*/*.pbix')):
+for path in sorted(ROOT.glob('reports/Task*/*.pbix')):
     model = PBIXRay(str(path))
     with zipfile.ZipFile(path) as archive:
         layout = json.loads(archive.read('Report/Layout').decode('utf-16-le'))

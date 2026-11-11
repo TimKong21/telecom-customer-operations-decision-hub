@@ -6,23 +6,23 @@ import {
   routeHash,
   rows,
   toggleSelection,
-} from "./engine";
+} from "../src/engine";
 import {
   inclusionMeasures,
   mean,
   measures,
   retentionMeasures,
-} from "./measures";
-import { agentStatistics, charts, kpis, pageFilters } from "./reports";
+} from "../src/measures";
+import { agentStatistics, charts, kpis, pageFilters } from "../src/reports";
 import {
   emptyState,
   type Context,
   type Filters,
   type ReportId,
   type Row,
-} from "./types";
-import fixtures from "./reference-cases.json";
-import visualFixtures from "./reference-visuals.json";
+} from "../src/types";
+import fixtures from "./fixtures/reference-cases.json";
+import visualFixtures from "./fixtures/reference-visuals.json";
 
 const datasets = Object.fromEntries(
   ["calls", "retention", "inclusion"].map((id) => [

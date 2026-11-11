@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "analyze": "python scripts/prepare_data.py",
-    "extract": "python scripts/extract_reports.py",
+    "extract": "python tools/powerbi/extract_reports.py",
     "test": "vitest run",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1"

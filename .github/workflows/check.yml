@@ -23,6 +23,6 @@ jobs:
           npm ci
           python -m pip install -r requirements.txt
           npm run analyze
-          git diff --exit-code -- public/data public/methodology.txt src/reference-cases.json src/reference-visuals.json
+          git diff --exit-code -- public/data public/case-material-notice.txt tests/fixtures
           npm test
           npm run build

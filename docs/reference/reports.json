@@ -1,6 +1,6 @@
 [
   {
-    "source": "Task 1 - Call Centre Trends/Call Centre Trends.pbix",
+    "source": "reports/Task 1 - Call Centre Trends/Call Centre Trends.pbix",
     "sha256": "a8242c37adc9eb94c6d6bf2da0993e1c2da6c4dcd150e0f08addbc6621ca6e96",
     "measures": [
       {
@@ -2259,7 +2259,7 @@
     }
   },
   {
-    "source": "Task 2 - Customer Retention/Customer Churn and Risk Analysis.pbix",
+    "source": "reports/Task 2 - Customer Retention/Customer Churn and Risk Analysis.pbix",
     "sha256": "6aa4b799824748bcd754632f445d82cac14b9b715253270846a024826656c535",
     "measures": [
       {
@@ -6997,7 +6997,7 @@
     }
   },
   {
-    "source": "Task 3 - Diversity & Inclusion/Diversity & Inclusion.pbix",
+    "source": "reports/Task 3 - Diversity & Inclusion/Diversity & Inclusion.pbix",
     "sha256": "be295aee619257676724e12e7e5d830e740947e73bdb209de9fe8ca01e82a5bd",
     "measures": [
       {

@@ -42,7 +42,7 @@ jobs:
       - name: Prepare and validate report data
         run: |
           npm run analyze
-          git diff --exit-code -- public/data public/methodology.txt src/reference-cases.json src/reference-visuals.json
+          git diff --exit-code -- public/data public/case-material-notice.txt tests/fixtures
           npm test
 
       - name: Build static site

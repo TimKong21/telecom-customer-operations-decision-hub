@@ -1,6 +1,8 @@
 """Deterministic workbook snapshots, source validation, and independent calculation controls."""
 import hashlib
 import json
+import sys
+sys.dont_write_bytecode = True
 from pathlib import Path
 
 import pandas as pd
@@ -11,17 +13,17 @@ OUTPUT = ROOT / 'public' / 'data'
 OUTPUT.mkdir(parents=True, exist_ok=True)
 
 MAPPINGS = {
-    'calls': ('Task 1 - Call Centre Trends/01 Call-Center-Dataset.xlsx', 'Sheet1', {
+    'calls': ('reports/Task 1 - Call Centre Trends/01 Call-Center-Dataset.xlsx', 'Sheet1', {
         'Call Id': 'id', 'Agent': 'agent', 'Date': 'date', 'DateTime': 'datetime', 'Topic': 'topic',
         'Answered (Y/N)': 'answered', 'Resolved': 'resolved', 'Speed of answer in secs': 'speed', 'Satisfaction rating': 'satisfaction'}),
-    'retention': ('Task 2 - Customer Retention/02 Churn-Dataset.xlsx', '01 Churn-Dataset', {
+    'retention': ('reports/Task 2 - Customer Retention/02 Churn-Dataset.xlsx', '01 Churn-Dataset', {
         'customerID': 'id', 'gender': 'gender', 'SeniorCitizen': 'senior', 'Partner': 'partner', 'Dependents': 'dependents',
         'tenure': 'tenure', 'PhoneService': 'phone', 'MultipleLines': 'lines', 'InternetService': 'internet',
         'OnlineSecurity': 'security', 'OnlineBackup': 'backup', 'DeviceProtection': 'protection', 'TechSupport': 'support',
         'StreamingTV': 'tv', 'StreamingMovies': 'movies', 'Contract': 'contract', 'PaperlessBilling': 'paperless',
         'PaymentMethod': 'payment', 'MonthlyCharges': 'monthly', 'TotalCharges': 'total',
         'numAdminTickets': 'admin', 'numTechTickets': 'tech', 'Churn': 'churn'}),
-    'inclusion': ('Task 3 - Diversity & Inclusion/03 Diversity-Inclusion-Dataset.xlsx', 'Pharma Group AG', {
+    'inclusion': ('reports/Task 3 - Diversity & Inclusion/03 Diversity-Inclusion-Dataset.xlsx', 'Pharma Group AG', {
         'Employee ID': 'id', 'Gender': 'gender', 'Job Level after FY20 promotions': 'level20',
         'Job Level after FY21 promotions': 'level21', 'New hire FY20?': 'newHire', 'FY20 Performance Rating': 'rating20',
         'FY19 Performance Rating': 'rating19', 'Promotion in FY21?': 'promoted21', 'Promotion in FY20?': 'promoted20',
@@ -114,8 +116,7 @@ for report in spec:
     assert hashlib.sha256((ROOT / report['source']).read_bytes()).hexdigest() == report['sha256'], 'PBIX changed: regenerate report specifications'
 manifest['measureCount'] = sum(len(r['measures']) for r in spec)
 write(OUTPUT / 'manifest.json', manifest, True)
-write(ROOT / 'src' / 'reference-cases.json', fixtures, True)
-write(ROOT / 'src' / 'reference-visuals.json', visual_fixtures, True)
-(ROOT / 'public' / 'methodology.txt').write_text((ROOT / 'docs/report-fidelity.md').read_text(encoding='utf-8'), encoding='utf-8', newline='\n')
+write(ROOT / 'tests' / 'fixtures' / 'reference-cases.json', fixtures, True)
+write(ROOT / 'tests' / 'fixtures' / 'reference-visuals.json', visual_fixtures, True)
 (ROOT / 'public' / 'case-material-notice.txt').write_text((ROOT / 'NOTICE.md').read_text(encoding='utf-8'), encoding='utf-8', newline='\n')
 print('Prepared 12,543 records, source checks, provenance, and independent calculation fixtures.')
