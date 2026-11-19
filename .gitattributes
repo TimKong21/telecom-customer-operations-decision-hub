@@ -1,0 +1,6 @@
+* text=auto
+*.pbix binary
+*.xlsx binary
+*.png binary
+*.json text eol=lf
+*.txt text eol=lf

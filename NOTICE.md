@@ -4,8 +4,8 @@ The MIT License in this repository applies only to the author-created software a
 
 The MIT grant does **not** apply to supplied or third-party case materials, including:
 
-- the source workbooks and other files in `Task 1 - Call Centre Trends/`, `Task 2 - Customer Retention/`, and `Task 3 - Diversity & Inclusion/`;
-- the original PBIX files, case datasets, and reference screenshots, including the assets in `README assests/`;
+- the source workbooks and other files in `reports/Task 1 - Call Centre Trends/`, `reports/Task 2 - Customer Retention/`, and `reports/Task 3 - Diversity & Inclusion/`;
+- the original PBIX files, case datasets, and reference screenshots, including the assets in `docs/report-references/`;
 - PwC, Forage, Microsoft Power BI, and other third-party names, logos, trademarks, or marks; and
 - any other external materials incorporated for portfolio evidence or reference.
 

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "datasets": {
+    "calls": {
+      "source": "reports/Task 1 - Call Centre Trends/01 Call-Center-Dataset.xlsx",
+      "sheet": "Sheet1",
+      "rows": 5000,
+      "sourceSha256": "fc73caed99c7fe91530dd52519dc5ea77556a30f47ebab5969dee8be195b6935",
+      "dataSha256": "e03235752ca10d94fcd2b8719354c4b10be4feb01231c6ba151fdc1549678e03",
+      "nullCounts": {
+        "speed": 946,
+        "satisfaction": 946
+      },
+      "controls": {
+        "count": 5000,
+        "answered": 4054,
+        "resolved": 3646,
+        "satisfaction": 3.4035520473606313,
+        "speed": 67.52072027627035
+      }
+    },
+    "retention": {
+      "source": "reports/Task 2 - Customer Retention/02 Churn-Dataset.xlsx",
+      "sheet": "01 Churn-Dataset",
+      "rows": 7043,
+      "sourceSha256": "0f71b4ffadf837b37ad6a8747a2abdbb1b5e9db49d6e5847709ec8af01218760",
+      "dataSha256": "45f04eadbdf9baf2f12fcaaaa1f37124cede6091f6803ed21917a1a40a4fed1b",
+      "nullCounts": {
+        "total": 11
+      },
+      "controls": {
+        "count": 7043,
+        "churned": 1869,
+        "churnRate": 26.536987079369588,
+        "total": 16056168.7,
+        "monthly": 64.76169246059918,
+        "averageTotal": 2283.3004408418656,
+        "tech": 2955.0,
+        "admin": 3632.0
+      }
+    },
+    "inclusion": {
+      "source": "reports/Task 3 - Diversity & Inclusion/03 Diversity-Inclusion-Dataset.xlsx",
+      "sheet": "Pharma Group AG",
+      "rows": 500,
+      "sourceSha256": "ae6a595566e3cc8d4e08d2325cbf80005ee79b605c6f1641d36984b30abfc96a",
+      "dataSha256": "56bf1585ee9e9f63bbc9dd1515a7382916949ac7d5f4d78420a3d83b88cc3476",
+      "nullCounts": {
+        "level21": 47,
+        "rating20": 87,
+        "rating19": 114,
+        "leaverFY": 453
+      },
+      "controls": {
+        "count": 500,
+        "womenShare": 41.0,
+        "turnover": 10.06423982869379,
+        "womenPromoted": 35.294117647058826,
+        "ratingMen": 2.4071146245059287,
+        "ratingWomen": 2.41875,
+        "promotions": 51,
+        "leavers": 47
+      }
+    }
+  },
+  "modelSpecification": "docs/reference/reports.json",
+  "measureCount": 30
+}

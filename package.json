@@ -1,11 +1,32 @@
 {
   "name": "telecom-customer-operations-decision-hub",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "A static, evidence-led portfolio product for operational decision support.",
+  "type": "module",
+  "description": "Independent, interactive browser editions of the Telecom Customer Operations reports.",
+  "engines": {
+    "node": ">=22.12"
+  },
   "scripts": {
-    "analyze": "python scripts/analyze_case_data.py",
-    "build": "node scripts/build.mjs",
-    "preview": "node scripts/preview.mjs"
+    "dev": "vite --host 127.0.0.1",
+    "analyze": "python scripts/prepare_data.py",
+    "extract": "python tools/powerbi/extract_reports.py",
+    "test": "vitest run",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@fontsource/source-sans-3": "^5.2.0",
+    "echarts": "^6.0.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "typescript": "~5.9.0",
+    "vite": "^7.1.0",
+    "vitest": "^3.2.0"
   }
 }

@@ -25,7 +25,25 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
+          cache: npm
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          python -m pip install -r requirements.txt
+
+      - name: Prepare and validate report data
+        run: |
+          npm run analyze
+          git diff --exit-code -- public/data public/case-material-notice.txt tests/fixtures
+          npm test
 
       - name: Build static site
         run: npm run build
