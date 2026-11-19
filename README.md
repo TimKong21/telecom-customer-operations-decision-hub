@@ -54,6 +54,8 @@ Open the URL printed by Vite, including `/telecom-customer-operations-decision-h
 
 Data preparation checks the source workbooks and regenerates the reference fixtures. Tests compare report measures and chart series against independent calculations and check interaction and link behaviour. [Validation notes](docs/validation.md) · [Power BI calculations and web adaptations](docs/report-fidelity.md) · [Validation workflow](.github/workflows/check.yml)
 
+Playwright checked responsive chart layouts during development and verified saved evidence links, filtering, share links, and legacy redirects on GitHub Pages.
+
 GitHub Pages deployment runs manually through **Deploy GitHub Pages**. The workflow validates the data, runs tests, and publishes the static build. [Deployment workflow](.github/workflows/github-pages.yml)
 
 ## License and case materials
