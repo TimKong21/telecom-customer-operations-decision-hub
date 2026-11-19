@@ -9,6 +9,7 @@ import {
   type Scalar,
   type Selection,
 } from "./types";
+import { findEvidence } from "./evidence";
 
 export function match(row: Row, filters: Filters) {
   return Object.entries(filters).every(([field, values]) => {
@@ -77,6 +78,7 @@ const modes = new Set<Interaction>(["filter", "highlight", "ignore"]);
 export function readRoute(hash: string): {
   report: ReportId;
   page: number;
+  evidence?: string;
   state?: ReportState;
 } {
   const [path, query = ""] = hash.replace(/^#\/?/, "").split("?");
@@ -88,8 +90,17 @@ export function readRoute(hash: string): {
     report,
     page: report !== "calls" && page === "2" ? 2 : 1,
   };
+  const params = new URLSearchParams(query);
+  const evidence =
+    candidate === report
+      ? findEvidence(report, result.page, params.get("evidence"))
+      : undefined;
+  if (evidence) {
+    result.evidence = evidence.id;
+    result.state = evidence.preset;
+  }
   try {
-    const encoded = new URLSearchParams(query).get("state");
+    const encoded = params.get("state");
     if (!encoded || encoded.length > 16000) return result;
     const state = JSON.parse(encoded);
     const scalar = (x: unknown): x is Scalar =>
@@ -122,17 +133,27 @@ export function readRoute(hash: string): {
     )
       result.state = state;
   } catch {
-    /* Invalid links open the report in its default state. */
+    /* Ignore invalid exploration state and keep any valid evidence preset. */
   }
   return result;
 }
 
-export function routeHash(report: ReportId, page: number, state: ReportState) {
-  const hasState =
-    Object.keys(state.filters).length ||
-    state.selections.length ||
-    state.interaction !== "filter";
-  return `#/${report}/${page}${hasState ? `?${new URLSearchParams({ state: JSON.stringify(state) })}` : ""}`;
+export function routeHash(
+  report: ReportId,
+  page: number,
+  state: ReportState,
+  evidenceId?: string,
+) {
+  const evidence = findEvidence(report, page, evidenceId);
+  const params = new URLSearchParams();
+  if (evidence) params.set("evidence", evidence.id);
+  const hasState = evidence
+    ? JSON.stringify(state) !== JSON.stringify(evidence.preset)
+    : Object.keys(state.filters).length > 0 ||
+      state.selections.length > 0 ||
+      state.interaction !== "filter";
+  if (hasState) params.set("state", JSON.stringify(state));
+  return `#/${report}/${page}${params.size ? `?${params}` : ""}`;
 }
 export function initialStates(): Record<ReportId, ReportState> {
   return {

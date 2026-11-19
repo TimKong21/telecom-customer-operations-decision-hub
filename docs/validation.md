@@ -28,7 +28,7 @@ Validated locally on 2026-11-10 with Node 24.22.1, Python 3.10, pandas 2.3.3, PB
 
 These tests validate the independent implementation against decoded model inputs, extracted expressions, original default-state screenshot evidence, and independently computed reference arithmetic. No live DAX engine or Power BI Desktop selected-state comparison was run. The extracted orphaned D&I interaction target has no corresponding current visual. Native Power BI highlighting defaults and pixel-perfect rendering are not claimed.
 
-The GitHub workflows are configured but have not been run remotely from this local branch. Deployment remains manual, and the live site has not been changed. A formal low-end-device performance benchmark has not been conducted.
+GitHub Actions validates pull requests and pushes to the release branches. The **Deploy GitHub Pages** workflow is dispatched manually on `main`. It regenerates report data, checks the generated files for drift, runs tests, and publishes the production build. A formal low-end-device performance benchmark has not been conducted.
 
 ## Stakeholder presentation and repository cleanup
 

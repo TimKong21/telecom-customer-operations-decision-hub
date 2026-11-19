@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as echarts from "echarts/core";
 import { BarChart, LineChart, PieChart, GaugeChart } from "echarts/charts";
 import {
@@ -33,12 +33,14 @@ type Props = {
     multi?: boolean,
   ) => void;
   multi: boolean;
+  evidenceRef?: (target: HTMLElement | null) => void;
 };
 
 function option(
   model: ChartModel,
   highlighted: ChartModel | undefined,
   selected: Scalar[],
+  chartWidth: number,
 ) {
   const palette = model.series.map(
     (s, i) => s.color || colors[i % colors.length],
@@ -142,6 +144,13 @@ function option(
       ],
     };
   }
+  const left = model.horizontal ? 143 : 42;
+  const right = model.kind === "combo" ? 55 : 22;
+  const categoryWidth = Math.max(
+    1,
+    Math.floor((chartWidth - left - right) / Math.max(model.points.length, 1)) - 6,
+  );
+  const labelWidth = Math.min(90, categoryWidth);
   const category = {
     type: "category",
     data: model.points.map((p) => p.label),
@@ -150,9 +159,11 @@ function option(
     axisLabel: {
       color: "#52667a",
       fontSize: 12,
-      width: model.horizontal ? 125 : 90,
+      lineHeight: model.horizontal ? undefined : 18,
+      width: model.horizontal ? 125 : labelWidth,
       overflow: "break",
       interval: 0,
+      hideOverlap: !model.horizontal,
     },
     inverse: model.horizontal || undefined,
   };
@@ -213,8 +224,8 @@ function option(
   return {
     ...common,
     grid: {
-      left: model.horizontal ? 143 : 42,
-      right: model.kind === "combo" ? 55 : 22,
+      left,
+      right,
       top: 15,
       bottom:
         model.points.some((p) => p.label.length > 16) && !model.horizontal
@@ -237,9 +248,11 @@ export default function Chart({
   selections,
   onSelect,
   multi,
+  evidenceRef,
 }: Props) {
   const host = useRef<HTMLDivElement>(null);
   const instance = useRef<echarts.ECharts | null>(null);
+  const [chartWidth, setChartWidth] = useState(0);
   const current = useRef({ model, onSelect, multi });
   current.current = { model, onSelect, multi };
   const selected = selections.find((s) => s.source === model.id)?.values ?? [];
@@ -261,7 +274,10 @@ export default function Chart({
           multiple || p.event?.event?.ctrlKey || p.event?.event?.metaKey,
         );
     });
-    const resize = new ResizeObserver(() => chart.resize());
+    const resize = new ResizeObserver(() => {
+      chart.resize();
+      setChartWidth(chart.getWidth());
+    });
     resize.observe(host.current);
     return () => {
       resize.disconnect();
@@ -273,19 +289,28 @@ export default function Chart({
     const reduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    instance.current?.setOption(
-      { ...option(model, highlighted, selected), animation: !reduced },
+    const chart = instance.current;
+    if (!chart) return;
+    chart.setOption(
+      {
+        ...option(model, highlighted, selected, chartWidth || chart.getWidth()),
+        animation: !reduced,
+      },
       true,
     );
-  }, [model, highlighted, selections]);
+  }, [model, highlighted, selections, chartWidth]);
   const empty = model.points.every((p) =>
     p.values.every((v) => v === null || v === 0),
   );
+  const formatSeriesValue = (value: number | null, index: number) =>
+    format(value, model.axisFormats?.[model.series[index]?.axis ?? 0] ?? model.format);
   return (
     <section
       className={`visual ${model.wide ? "visual-wide" : ""}`}
       aria-labelledby={`title-${model.id}`}
       data-visual={model.id}
+      tabIndex={evidenceRef ? -1 : undefined}
+      ref={evidenceRef}
     >
       <div className="visual-heading">
         <div>
@@ -300,7 +325,7 @@ export default function Chart({
         className={`chart ${model.kind === "gauge" ? "chart-gauge" : ""}`}
         ref={host}
         role="img"
-        aria-label={`${model.title}. ${model.points.map((p) => `${p.label}: ${p.values.map((v, i) => `${model.series[i]?.name} ${format(v, model.format)}`).join(", ")}`).join("; ")}. Data and keyboard selection available below.`}
+        aria-label={`${model.title}. ${model.points.map((p) => `${p.label}: ${p.values.map((v, i) => `${model.series[i]?.name} ${formatSeriesValue(v, i)}`).join(", ")}`).join("; ")}. Data and keyboard selection available below.`}
       />
       {empty && (
         <p className="empty-chart">
@@ -352,16 +377,7 @@ export default function Chart({
                     )}
                   </th>
                   {p.values.map((v, i) => (
-                    <td key={i}>
-                      {format(
-                        v,
-                        model.series[i]?.name.includes("(%)")
-                          ? "percent"
-                          : model.series[i]?.axis
-                            ? "number"
-                            : model.format,
-                      )}
-                    </td>
+                    <td key={i}>{formatSeriesValue(v, i)}</td>
                   ))}
                 </tr>
               ))}

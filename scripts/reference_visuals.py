@@ -26,7 +26,10 @@ def visual_controls(report, source, page):
         counts('answered', d, 'answered', ['Y', 'N'])
         counts('resolved', d, 'resolved', ['Y', 'N'])
         # Hour and month sort naturally because the dataset spans Jan–Mar of one year.
-        grouped('hourly', d, 'hour', lambda g: [len(g)], sorted(d.hour.unique().tolist()))
+        def hourly(g):
+            unanswered = len(eq(g, 'answered', 'N'))
+            return [len(g), unanswered, pct(unanswered, len(g))]
+        grouped('hourly', d, 'hour', hourly, sorted(d.hour.unique().tolist()))
         grouped('monthly', d, 'month', lambda g: [len(eq(g, 'answered', 'Y')), len(eq(g, 'answered', 'N'))])
     elif report == 'retention' and page == 1:
         d = eq(d, 'churn', 'Yes')

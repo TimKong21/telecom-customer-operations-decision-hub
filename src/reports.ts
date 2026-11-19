@@ -9,6 +9,7 @@ import {
   sum,
   yes,
 } from "./measures";
+import { emptyState } from "./types";
 import type {
   ChartModel,
   Context,
@@ -103,6 +104,19 @@ export const slicerFields: Record<ReportId, string[]> = {
 };
 export const pageFilters = (report: ReportId, page: number): Filters =>
   report === "retention" && page === 1 ? { churn: ["Yes"] } : {};
+
+export function churnByContract(context: Context) {
+  // Numerators and denominators describe the same selected customer population.
+  const population = rows(context);
+  return ["Month-to-month", "One year", "Two year"].map((contract) => ({
+    contract,
+    ...retentionMeasures({
+      all: population,
+      state: emptyState(),
+      visualFilters: { contract: [contract] },
+    }),
+  }));
+}
 
 function chart(
   context: Context,
@@ -339,11 +353,27 @@ export function charts(
         format: "decimal",
         subtitle: "Seconds / observed minimum and maximum",
       },
-      count(context, "hourly", "Calls during operating hours", "hour", {
-        kind: "line",
-        wide: true,
-        subtitle: "Select an hour to explore the calls behind it",
-      }),
+      chart(
+        context,
+        "hourly",
+        "Call volume and unanswered calls by hour",
+        "hour",
+        (data) => {
+          const unanswered = yes(data, "answered", "N");
+          return [data.length, unanswered, divide(unanswered, data.length)];
+        },
+        [
+          { name: "Total calls", type: "line", color: colors[0] },
+          { name: "Unanswered calls", type: "bar", color: colors[2] },
+          { name: "Unanswered rate (%)", type: "line", axis: 1, color: colors[1] },
+        ],
+        {
+          kind: "combo",
+          axisFormats: ["number", "percent"],
+          wide: true,
+          subtitle: "Call counts on the left axis and unanswered rate on the right",
+        },
+      ),
       chart(
         context,
         "monthly",
@@ -691,8 +721,7 @@ export function charts(
       {
         stacked: true,
         wide: true,
-        subtitle:
-          "Current employees by age group and FY21 job level",
+        subtitle: "Current employees by age group and FY21 job level",
       },
       { leaverFY: [null] },
     ),

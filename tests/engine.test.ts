@@ -13,7 +13,15 @@ import {
   measures,
   retentionMeasures,
 } from "../src/measures";
-import { agentStatistics, charts, kpis, pageFilters } from "../src/reports";
+import {
+  agentStatistics,
+  charts,
+  churnByContract,
+  format,
+  kpis,
+  pageFilters,
+} from "../src/reports";
+import { findings } from "../src/evidence";
 import {
   emptyState,
   type Context,
@@ -33,6 +41,113 @@ const datasets = Object.fromEntries(
 function context(report: ReportId, filters: Filters = {}): Context {
   return { all: datasets[report], state: { ...emptyState(), filters } };
 }
+
+describe("published evidence", () => {
+  it("opens canonical presets and round-trips an edited evidence view", () => {
+    for (const finding of findings) {
+      const { report, page, preset, id } = finding;
+      const canonical = routeHash(report, page, preset, id);
+      expect(canonical).toBe(`#/${report}/${page}?evidence=${id}`);
+      expect(readRoute(canonical)).toEqual({
+        report,
+        page,
+        evidence: id,
+        state: preset,
+      });
+      expect(readRoute(canonical + "&state=bad").state).toEqual(preset);
+      const edited = { ...preset, filters: { example: ["selection"] } };
+      expect(readRoute(routeHash(report, page, edited, id)).state).toEqual(
+        edited,
+      );
+      expect(routeHash(report, page, preset, id)).toBe(canonical);
+    }
+    expect(readRoute("#/retention/1?evidence=churn-by-contract")).toEqual({
+      report: "retention",
+      page: 1,
+    });
+    expect(readRoute("#/retention/2?evidence=unknown")).toEqual({
+      report: "retention",
+      page: 2,
+    });
+  });
+
+  it("supports the published staffing and representation comparisons", () => {
+    const hourly = charts("calls", context("calls"), 1).find(
+      (chart) => chart.id === "hourly",
+    )!;
+    const peak = hourly.points.reduce((largest, point) =>
+      (point.values[0] ?? 0) > (largest.values[0] ?? 0) ? point : largest,
+    );
+    expect([peak.key, peak.values[0]]).toEqual([13, 594]);
+    const unansweredPeak = hourly.points.reduce((largest, point) =>
+      (point.values[1] ?? 0) > (largest.values[1] ?? 0) ? point : largest,
+    );
+    expect([unansweredPeak.key, ...unansweredPeak.values.slice(0, 2)]).toEqual([
+      12, 547, 116,
+    ]);
+    expect(format(unansweredPeak.values[2], "percent")).toBe("21.2%");
+    expect(peak.values[1]).toBe(110);
+    expect(format(peak.values[2], "percent")).toBe("18.5%");
+
+    const workforce = charts("inclusion", context("inclusion"), 1).find(
+      (chart) => chart.id === "hiring",
+    )!;
+    expect(
+      workforce.points.find((point) => point.key === "1 - Executive")?.values,
+    ).toEqual([2, 14]);
+    expect(
+      workforce.points.find((point) => point.key === "6 - Junior Officer")
+        ?.values,
+    ).toEqual([109, 95]);
+    expect(
+      workforce.points.find((point) => point.key === "3 - Senior Manager")?.values,
+    ).toEqual([10, 46]);
+  });
+
+  it("opens retention evidence with all service groups within month-to-month contracts", () => {
+    const route = readRoute("#/retention/2?evidence=churn-by-contract");
+    expect(route.state?.filters).toEqual({ contract: ["Month-to-month"] });
+    const scoped = context("retention", route.state?.filters);
+    expect(rows(scoped)).toHaveLength(3875);
+    const service = charts("retention", scoped, route.page).find(
+      (chart) => chart.id === "internet-risk",
+    )!;
+    expect(
+      service.points.map(({ key, values }) => [key, values[1], format(values[0], "percent")]),
+    ).toEqual([
+      ["DSL", 1223, "32.2%"],
+      ["Fiber optic", 2128, "54.6%"],
+      ["No", 524, "18.9%"],
+    ]);
+    expect(rows(scoped).filter((row) => row.internet === "Fiber optic" && row.churn === "Yes")).toHaveLength(1162);
+  });
+
+  it("compares contract churn against the full population and respects slicers", () => {
+    const comparison = churnByContract(context("retention"));
+    expect(
+      comparison.map((row) => [
+        row.count,
+        row.churned,
+        format(row.churnRate, "percent"),
+      ]),
+    ).toEqual([
+      [3875, 1655, "42.7%"],
+      [1473, 166, "11.3%"],
+      [1695, 48, "2.8%"],
+    ]);
+    expect(comparison.reduce((total, row) => total + row.churned, 0)).toBe(
+      1869,
+    );
+    expect(
+      churnByContract(context("retention", { contract: ["One year"] })).map(
+        (row) => row.count,
+      ),
+    ).toEqual([0, 1473, 0]);
+    const retained = churnByContract(context("retention", { churn: ["No"] }));
+    expect(retained.map((row) => row.count)).toEqual([2220, 1307, 1647]);
+    expect(retained.map((row) => row.churned)).toEqual([0, 0, 0]);
+  });
+});
 
 describe("independent Python workbook calculation controls", () => {
   for (const f of fixtures)

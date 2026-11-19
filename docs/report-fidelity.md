@@ -16,7 +16,7 @@ The TypeScript measure functions and every rendered chart series are checked aga
 | --- | --- |
 | Call counts | Counts of nonblank source call IDs; workbook keys are checked as unique. Answered/resolved measures use CALCULATE replacement of their respective status filters, preserving other context. |
 | Call ratings and speed | Average of nonblank ratings / answer-speed observations. The answer-speed gauge uses observed minimum and maximum; satisfaction uses observed maximum. Agent statistics use the same named counts and averages. |
-| Calls by hour and month | HOUR of the source DateTime field; calendar month of the separate Date field. Date-range endpoints are inclusive. |
+| Calls by hour and month | HOUR of the source DateTime field; calendar month of the separate Date field. Date-range endpoints are inclusive. The hourly view also shows unanswered calls and their share of all calls in each hour. |
 | Churn exploration | Page restriction `Churn = Yes` is retained. Demographic and service measures divide the Yes subgroup by the churned population, matching the original CALCULATE/DIVIDE expressions. MultipleLines excludes No phone service in that visual only. |
 | Churn risk | Churned count divided by customer count in context. Original DIVIDE fallback is zero. Ticket and charge charts use sums; blank total charges are excluded from averages and contribute nothing to sums. |
 | Tenure | Original inclusive boundaries at 12, 24, 36, 48, 60, 72 months. Labels now state the actual intervals, e.g. 0–12 months, instead of the original misleading `< 1 year`. No records exceed 72 months. |

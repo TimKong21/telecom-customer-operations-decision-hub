@@ -1,4 +1,12 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {
   initialStates,
   readRoute,
@@ -6,10 +14,12 @@ import {
   rows,
   toggleSelection,
 } from "./engine";
+import { findEvidence, findings } from "./evidence";
 import { distinct } from "./measures";
 import {
   agentStatistics,
   charts,
+  churnByContract,
   fieldLabels,
   format,
   kpis,
@@ -117,19 +127,47 @@ export default function App() {
   const [route, setRoute] = useState({
     report: initial.report,
     page: initial.page,
+    evidence: initial.evidence,
   });
   const [states, setStates] = useState(() => ({
     ...initialStates(),
     [initial.report]: initial.state ?? emptyState(),
   }));
   const { report, page } = route;
+  const evidence = findEvidence(report, page, route.evidence);
+  const takeaway = findings.find(
+    (finding) => finding.report === report && finding.page === page,
+  );
   const state = states[report],
     info = reportInfo[report];
-  const [data, setData] = useState<Row[] | null>(null);
+  const [dataset, setDataset] = useState<{
+    report: ReportId;
+    rows: Row[];
+  } | null>(null);
+  const data = dataset?.report === report ? dataset.rows : cache.get(report);
   const [error, setError] = useState("");
   const [retry, setRetry] = useState(0);
   const [multi, setMulti] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<"view" | "evidence" | null>(null);
+  const [focusRequest, setFocusRequest] = useState(initial.evidence ? 1 : 0);
+  const handledFocus = useRef(0);
+  const focusEvidence = useCallback(
+    (target: HTMLElement | null) => {
+      if (!target || handledFocus.current === focusRequest) return;
+      handledFocus.current = focusRequest;
+      const details =
+        target.querySelector<HTMLDetailsElement>("details.chart-data");
+      if (details) details.open = true;
+      target.focus({ preventScroll: true });
+      target.scrollIntoView({ block: "start" });
+    },
+    [focusRequest],
+  );
+  useEffect(() => {
+    if (!copied) return;
+    const timer = window.setTimeout(() => setCopied(null), 2000);
+    return () => window.clearTimeout(timer);
+  }, [copied]);
   const [manifest, setManifest] = useState<{
     datasets: Record<string, { rows: number }>;
   } | null>(null);
@@ -142,8 +180,13 @@ export default function App() {
   useEffect(() => {
     const receive = () => {
       const next = readRoute(location.hash);
-      setRoute({ report: next.report, page: next.page });
+      setRoute({
+        report: next.report,
+        page: next.page,
+        evidence: next.evidence,
+      });
       setStates((s) => ({ ...s, [next.report]: next.state ?? emptyState() }));
+      if (next.evidence) setFocusRequest((n) => n + 1);
     };
     addEventListener("hashchange", receive);
     addEventListener("popstate", receive);
@@ -153,12 +196,15 @@ export default function App() {
     };
   }, []);
   useEffect(() => {
-    history.replaceState(null, "", routeHash(report, page, state));
-  }, [report, page, state]);
+    history.replaceState(
+      null,
+      "",
+      routeHash(report, page, state, route.evidence),
+    );
+  }, [report, page, state, route.evidence]);
   useEffect(() => {
     const controller = new AbortController();
     setError("");
-    setData(cache.get(report) ?? null);
     if (!cache.has(report))
       fetch(`${base}data/${report}.json`, { signal: controller.signal })
         .then(async (response) => {
@@ -171,8 +217,10 @@ export default function App() {
             throw new Error(
               "The report data is unavailable. Try reloading the page.",
             );
-          cache.set(report, result);
-          setData(result);
+          if (!controller.signal.aborted) {
+            cache.set(report, result);
+            setDataset({ report, rows: result });
+          }
         })
         .catch((err) => {
           if (err.name !== "AbortError") setError(err.message);
@@ -187,7 +235,31 @@ export default function App() {
       "",
       routeHash(nextReport, nextPage, states[nextReport]),
     );
-    setRoute({ report: nextReport, page: nextPage });
+    setRoute({ report: nextReport, page: nextPage, evidence: undefined });
+  };
+  const openEvidence = (finding: (typeof findings)[number]) => {
+    history.pushState(
+      null,
+      "",
+      routeHash(finding.report, finding.page, finding.preset, finding.id),
+    );
+    setStates((s) => ({ ...s, [finding.report]: finding.preset }));
+    setRoute({
+      report: finding.report,
+      page: finding.page,
+      evidence: finding.id,
+    });
+    setFocusRequest((n) => n + 1);
+  };
+  const copyLink = async (hash: string, kind: "view" | "evidence") => {
+    const url = new URL(hash, location.href).href;
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(kind);
+    } catch {
+      setCopied(null);
+      window.prompt("Copy this report link", url);
+    }
   };
   const context: Context = {
     all: data ?? [],
@@ -302,18 +374,11 @@ export default function App() {
             </div>
             <button
               className="button share-button"
-              onClick={async () => {
-                try {
-                  await navigator.clipboard.writeText(location.href);
-                  setCopied(true);
-                  window.setTimeout(() => setCopied(false), 2000);
-                } catch {
-                  setCopied(false);
-                  window.prompt("Copy this report link", location.href);
-                }
-              }}
+              onClick={() =>
+                copyLink(routeHash(report, page, state, route.evidence), "view")
+              }
             >
-              {copied ? "Link copied" : "Share view ↗"}
+              {copied === "view" ? "Link copied" : "Share view ↗"}
             </button>
           </div>
           <div className="page-navigation">
@@ -337,6 +402,59 @@ export default function App() {
               {page} / {info.pages.length}
             </span>
           </div>
+          {takeaway && (
+            <section className="takeaway" aria-labelledby="takeaway-title">
+              <p className="takeaway-scope">
+                Analyst takeaway · {takeaway.scope}
+              </p>
+              <h2 id="takeaway-title">{takeaway.title}</h2>
+              <p>
+                {takeaway.finding} {takeaway.nextStep}
+              </p>
+              <div className="takeaway-actions">
+                <a
+                  href={routeHash(
+                    takeaway.report,
+                    takeaway.page,
+                    takeaway.preset,
+                    takeaway.id,
+                  )}
+                  onClick={(event) => {
+                    if (
+                      event.metaKey ||
+                      event.ctrlKey ||
+                      event.shiftKey ||
+                      event.altKey
+                    )
+                      return;
+                    event.preventDefault();
+                    openEvidence(takeaway);
+                  }}
+                >
+                  View evidence
+                </a>
+                <button
+                  type="button"
+                  className="text-button"
+                  onClick={() =>
+                    copyLink(
+                      routeHash(
+                        takeaway.report,
+                        takeaway.page,
+                        takeaway.preset,
+                        takeaway.id,
+                      ),
+                      "evidence",
+                    )
+                  }
+                >
+                  {copied === "evidence"
+                    ? "Evidence link copied"
+                    : "Copy evidence link"}
+                </button>
+              </div>
+            </section>
+          )}
           {error ? (
             <section role="alert" className="load-state">
               <h2>Report unavailable</h2>
@@ -356,9 +474,12 @@ export default function App() {
                   <span className="filter-label">Filter this report</span>
                   <button
                     className="text-button"
-                    onClick={() => update(emptyState())}
+                    onClick={() => {
+                      update(evidence?.preset ?? emptyState());
+                      if (evidence) setFocusRequest((n) => n + 1);
+                    }}
                   >
-                    ↺ Reset report
+                    {evidence ? "Reset to evidence view" : "↺ Reset report"}
                   </button>
                 </div>
                 <div className="slicer-row">
@@ -531,6 +652,49 @@ export default function App() {
                   </section>
                 ))}
               </div>
+              {report === "retention" && page === 2 && (
+                <section
+                  className="visual contract-evidence"
+                  aria-labelledby="contract-evidence-title"
+                  data-visual="contract-churn"
+                  tabIndex={-1}
+                  ref={
+                    evidence?.target === "contract-churn"
+                      ? focusEvidence
+                      : undefined
+                  }
+                >
+                  <div className="visual-heading">
+                    <h2 id="contract-evidence-title">Churn by contract type</h2>
+                  </div>
+                  <div className="table-scroll">
+                    <table>
+                      <caption className="sr-only">
+                        Customer counts and churn rates by contract type for the
+                        selected population
+                      </caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">Contract type</th>
+                          <th scope="col">Customers</th>
+                          <th scope="col">Churned customers</th>
+                          <th scope="col">Churn rate</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {churnByContract(context).map((row) => (
+                          <tr key={row.contract}>
+                            <th scope="row">{row.contract}</th>
+                            <td>{format(row.count)}</td>
+                            <td>{format(row.churned)}</td>
+                            <td>{format(row.churnRate, "percent")}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              )}
               <div
                 className={`report-grid ${report === "calls" ? "calls-grid" : ""}`}
               >
@@ -539,12 +703,15 @@ export default function App() {
                     <Chart
                       key={`${report}-${page}-${model.id}`}
                       model={model}
-                      highlighted={highlighted.find(
-                        (h) => h.id === model.id,
-                      )}
+                      highlighted={highlighted.find((h) => h.id === model.id)}
                       selections={state.selections}
                       onSelect={select}
                       multi={multi}
+                      evidenceRef={
+                        evidence?.target === model.id
+                          ? focusEvidence
+                          : undefined
+                      }
                     />
                   ))}
                 </Suspense>
@@ -615,7 +782,8 @@ export default function App() {
           )}
           <footer>
             <span>
-              Based on PwC / Forage case materials. No affiliation or endorsement.
+              Based on PwC / Forage case materials. No affiliation or
+              endorsement.
             </span>
             <a href={`${base}case-material-notice.txt`}>Case material notice</a>
           </footer>
